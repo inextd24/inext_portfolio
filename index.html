@@ -5,14 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>INEXT | 3D Interior & Exterior Visualization</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
 <style>
-
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #0f0f0f;
-    color: #ffffff;
+    color: #fff;
 }
 
 header {
@@ -23,6 +21,7 @@ header {
     background: #111;
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 
 .logo {
@@ -38,9 +37,7 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover {
-    color: #d4af37;
-}
+nav a:hover { color: #d4af37; }
 
 .hero {
     height: 90vh;
@@ -52,17 +49,8 @@ nav a:hover {
     padding: 0 20px;
 }
 
-.hero h1 {
-    font-size: 60px;
-    font-family: 'Playfair Display', serif;
-    margin: 0;
-}
-
-.hero p {
-    font-size: 20px;
-    color: #ccc;
-    margin: 20px 0;
-}
+.hero h1 { font-size: 60px; font-family: 'Playfair Display', serif; margin: 0; }
+.hero p { font-size: 20px; color: #ccc; margin: 20px 0; }
 
 .button {
     padding: 12px 28px;
@@ -73,20 +61,10 @@ nav a:hover {
     transition: 0.3s;
 }
 
-.button:hover {
-    background: #d4af37;
-    color: #000;
-}
+.button:hover { background: #d4af37; color: #000; }
 
-.section {
-    padding: 80px 10%;
-}
-
-.section h2 {
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 40px;
-}
+.section { padding: 80px 10%; }
+.section h2 { text-align: center; font-family: 'Playfair Display', serif; margin-bottom: 40px; }
 
 .grid {
     display: grid;
@@ -98,23 +76,14 @@ nav a:hover {
     width: 100%;
     display: block;
     transition: 0.4s;
+    border-radius: 10px;
 }
 
-.grid img:hover {
-    transform: scale(1.05);
-}
+.grid img:hover { transform: scale(1.05); }
 
-.about p {
-    line-height: 1.8;
-    color: #ccc;
-}
+.about p { line-height: 1.8; color: #ccc; }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #111;
-    color: #777;
-}
+footer { text-align: center; padding: 30px; background: #111; color: #777; }
 
 .whatsapp {
     position: fixed;
@@ -128,9 +97,29 @@ footer {
     font-size: 22px;
 }
 
+/* Portfolio Filter Menu */
+.filter-menu {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.filter-menu button {
+    border: 1px solid #d4af37;
+    background: transparent;
+    color: #d4af37;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.filter-menu button.active,
+.filter-menu button:hover { background: #d4af37; color: #000; }
+
+.portfolio-item { display: none; }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -151,33 +140,53 @@ footer {
 
 <section class="section" id="portfolio">
 <h2>Selected Works</h2>
+
+<!-- Filter Menu -->
+<div class="filter-menu">
+<button class="filter-btn active" onclick="filterSelection('all')">All</button>
+<button class="filter-btn" onclick="filterSelection('interior')">Interior</button>
+<button class="filter-btn" onclick="filterSelection('exterior')">Exterior</button>
+<button class="filter-btn" onclick="filterSelection('elevation')">Elevation</button>
+<button class="filter-btn" onclick="filterSelection('walkthrough')">Walkthrough</button>
+<button class="filter-btn" onclick="filterSelection('sectional')">2D & 3D Sectional</button>
+</div>
+
+<!-- Portfolio Grid -->
 <div class="grid">
+<!-- INTERIOR -->
+<div class="portfolio-item interior"><img src="GK0.jpg" alt="Interior Render 1"></div>
+<div class="portfolio-item interior"><img src="GK1.jpg" alt="Interior Render 2"></div>
+<div class="portfolio-item interior"><img src="GK2.jpg" alt="Interior Render 3"></div>
 
-<!-- ADD YOUR PROJECT IMAGES HERE -->
-<img src="GK0.jpg.jpg" alt="Interior Render">
-<img src="GK0.jpg.jpg" alt="Interior Render">
-<img src="GK0.jpg.jpg" alt="Interior Render">
+<!-- EXTERIOR -->
+<div class="portfolio-item exterior"><img src="GK3.jpg" alt="Exterior Render 1"></div>
+<div class="portfolio-item exterior"><img src="GK4.jpg" alt="Exterior Render 2"></div>
+<div class="portfolio-item exterior"><img src="GK5.jpg" alt="Exterior Render 3"></div>
 
+<!-- ELEVATION -->
+<div class="portfolio-item elevation"><img src="GK6.jpg" alt="Elevation Render 1"></div>
+<div class="portfolio-item elevation"><img src="GK7.jpg" alt="Elevation Render 2"></div>
+<div class="portfolio-item elevation"><img src="GK8.jpg" alt="Elevation Render 3"></div>
+
+<!-- WALKTHROUGH -->
+<div class="portfolio-item walkthrough"><img src="GK9.jpg" alt="Walkthrough Render 1"></div>
+<div class="portfolio-item walkthrough"><img src="GK10.jpg" alt="Walkthrough Render 2"></div>
+
+<!-- 2D & 3D SECTIONAL -->
+<div class="portfolio-item sectional"><img src="GK11.jpg" alt="2D & 3D Sectional 1"></div>
+<div class="portfolio-item sectional"><img src="GK12.jpg" alt="2D & 3D Sectional 2"></div>
 </div>
 </section>
 
 <section class="section about" id="about">
 <h2>The Philosophy</h2>
-
 <p><strong>Great design doesn't stop at the threshold.</strong> I specialize in creating a seamless dialogue between a structure’s environment and its inner sanctuary. By blending architectural rigor with interior artistry, I provide 3D visualizations that aren't just "images"—they are blueprints for reality.</p>
-
 <h2>What I Do</h2>
-
 <p>I help architects, developers, and private clients eliminate the "what ifs." Through high-fidelity rendering and immersive 3D modeling, I bring every texture, shadow, and structural detail to light.</p>
-
 <p><strong>The Inside:</strong> Focused on ergonomics, mood, and the tactile details that make a space feel like home (or work).</p>
-
 <p><strong>The Outside:</strong> Focused on presence, landscape integration, and the bold architectural statements that define a skyline.</p>
-
 <h2>The Goal</h2>
-
 <p>To turn your conceptual sketches into a tangible vision that secures investors, wins over clients, or simply gives you the confidence to start building.</p>
-
 </section>
 
 <section class="section" id="contact">
@@ -193,6 +202,49 @@ footer {
 </footer>
 
 <a href="https://wa.me/918459441620" class="whatsapp">💬</a>
+
+<script>
+// Filter Function
+filterSelection("all");
+
+function filterSelection(category) {
+  let items = document.getElementsByClassName("portfolio-item");
+  if(category === "all") category = "";
+  for(let i=0; i<items.length; i++){
+    removeClass(items[i], "show");
+    if(items[i].className.indexOf(category) > -1) addClass(items[i], "show");
+  }
+}
+
+// Show and Hide Classes
+function addClass(element, name){
+  let arr = element.className.split(" ");
+  if(arr.indexOf(name) === -1) element.className += " " + name;
+}
+function removeClass(element, name){
+  let arr = element.className.split(" ");
+  while(arr.indexOf(name) > -1){
+    arr.splice(arr.indexOf(name), 1);
+  }
+  element.className = arr.join(" ");
+}
+
+// Highlight Active Button
+let btnContainer = document.getElementsByClassName("filter-menu")[0];
+let btns = btnContainer.getElementsByClassName("filter-btn");
+for (let i = 0; i < btns.length; i++){
+  btns[i].addEventListener("click", function(){
+    let current = btnContainer.getElementsByClassName("active")[0];
+    current.className = current.className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+<style>
+/* Show filtered items */
+.show { display: block; }
+</style>
 
 </body>
 </html>
