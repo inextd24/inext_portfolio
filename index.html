@@ -6,16 +6,45 @@
 <title>INEXT | 3D Interior & Exterior Visualization</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family:'Poppins',sans-serif; background: linear-gradient(135deg, #0f0f0f, #1a1a1a); color:#fff; }
-header { padding:20px 10%; display:flex; justify-content:space-between; align-items:center; background:#111; position:sticky; top:0; z-index:1000; }
+/* BODY & BACKGROUND */
+body {
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color:#fff;
+}
+
+/* HEADER */
+header {
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
 .logo { font-family:'Playfair Display', serif; font-size:28px; letter-spacing:3px; }
 nav a { color:#aaa; margin-left:20px; text-decoration:none; transition:.3s; }
 nav a:hover { color:#d4af37; }
-.hero { height:90vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 20px; }
+
+/* HERO SECTION */
+.hero {
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 20px;
+}
 .hero h1 { font-size:60px; font-family:'Playfair Display', serif; margin:0; }
 .hero p { font-size:20px; color:#ccc; margin:20px 0; }
 .button { padding:12px 28px; border:1px solid #d4af37; color:#d4af37; text-decoration:none; margin:10px; transition:.3s; }
 .button:hover { background:#d4af37; color:#000; }
+
+/* SECTIONS */
 .section { padding:80px 10%; }
 .section h2 { text-align:center; font-family:'Playfair Display', serif; margin-bottom:40px; }
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
@@ -25,7 +54,7 @@ nav a:hover { color:#d4af37; }
 footer { text-align:center; padding:30px; background:#111; color:#777; }
 .whatsapp { position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px; border-radius:50%; text-decoration:none; font-size:22px; }
 
-/* Filter Menu */
+/* FILTER MENU */
 .filter-menu { text-align:center; margin-bottom:40px; }
 .filter-menu button { border:1px solid #d4af37; background:transparent; color:#d4af37; padding:10px 20px; margin:5px; cursor:pointer; transition:.3s; border-radius:5px; }
 .filter-menu button.active, .filter-menu button:hover { background:#d4af37; color:#000; }
@@ -33,17 +62,29 @@ footer { text-align:center; padding:30px; background:#111; color:#777; }
 .portfolio-item { display:none; }
 .show { display:block; }
 
-/* Lightbox Styles */
+/* LIGHTBOX */
 .lightbox {
   display:none; position:fixed; z-index:2000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); justify-content:center; align-items:center;
+  flex-direction:column;
 }
-.lightbox img { max-width:90%; max-height:80%; border-radius:10px; }
+.lightbox img { max-width:90%; max-height:80%; border-radius:10px; margin-bottom:10px; }
 .lightbox .close, .lightbox .prev, .lightbox .next {
   position:absolute; top:50%; transform:translateY(-50%); color:#d4af37; font-size:50px; cursor:pointer; user-select:none;
 }
 .lightbox .close { top:20px; right:30px; transform:none; font-size:40px; }
 .lightbox .prev { left:30px; }
 .lightbox .next { right:30px; }
+
+/* LIGHTBOX CAPTION */
+#lightbox-caption { color:#d4af37; font-family:'Poppins',sans-serif; font-size:18px; text-align:center; }
+
+/* SECTION-SPECIFIC BACKGROUNDS */
+#portfolio { background: linear-gradient(to bottom, #0f0f0f 0%, #111 100%); }
+#interior { background:#111111; }
+#exterior { background:#121212; }
+#elevation { background:#0e0e0e; }
+#walkthrough { background:#131313; }
+#sectional { background:#101010; }
 </style>
 </head>
 <body>
@@ -67,7 +108,6 @@ footer { text-align:center; padding:30px; background:#111; color:#777; }
 <section class="section" id="portfolio">
 <h2>Selected Works</h2>
 
-<!-- Filter Menu -->
 <div class="filter-menu">
 <button class="filter-btn active" onclick="filterSelection('all')">All</button>
 <button class="filter-btn" onclick="filterSelection('interior')">Interior</button>
@@ -77,39 +117,39 @@ footer { text-align:center; padding:30px; background:#111; color:#777; }
 <button class="filter-btn" onclick="filterSelection('sectional')">2D & 3D Sectional</button>
 </div>
 
-<!-- Portfolio Grid -->
 <div class="grid">
 <!-- INTERIOR -->
-<div class="portfolio-item interior"><img src="GK0.jpg" alt="Interior Render 1"></div>
-<div class="portfolio-item interior"><img src="GK1" alt="Interior Render 2"></div>
-<div class="portfolio-item interior"><img src="GK2" alt="Interior Render 3"></div>
+<div class="portfolio-item interior" data-caption="Interior Render 1"><img src="GK0.jpg" alt="Interior Render 1"></div>
+<div class="portfolio-item interior" data-caption="Interior Render 2"><img src="GK1.jpg" alt="Interior Render 2"></div>
+<div class="portfolio-item interior" data-caption="Interior Render 3"><img src="GK2.jpg" alt="Interior Render 3"></div>
 
 <!-- EXTERIOR -->
-<div class="portfolio-item exterior"><img src="ade1" alt="Exterior Render 1"></div>
-<div class="portfolio-item exterior"><img src="ade2" alt="Exterior Render 2"></div>
-<div class="portfolio-item exterior"><img src="GK5.jpg" alt="Exterior Render 3"></div>
+<div class="portfolio-item exterior" data-caption="Exterior Render 1"><img src="GK3.jpg" alt="Exterior Render 1"></div>
+<div class="portfolio-item exterior" data-caption="Exterior Render 2"><img src="GK4.jpg" alt="Exterior Render 2"></div>
+<div class="portfolio-item exterior" data-caption="Exterior Render 3"><img src="GK5.jpg" alt="Exterior Render 3"></div>
 
 <!-- ELEVATION -->
-<div class="portfolio-item elevation"><img src="GK6.jpg" alt="Elevation Render 1"></div>
-<div class="portfolio-item elevation"><img src="GK7.jpg" alt="Elevation Render 2"></div>
-<div class="portfolio-item elevation"><img src="GK8.jpg" alt="Elevation Render 3"></div>
+<div class="portfolio-item elevation" data-caption="Elevation Render 1"><img src="GK6.jpg" alt="Elevation Render 1"></div>
+<div class="portfolio-item elevation" data-caption="Elevation Render 2"><img src="GK7.jpg" alt="Elevation Render 2"></div>
+<div class="portfolio-item elevation" data-caption="Elevation Render 3"><img src="GK8.jpg" alt="Elevation Render 3"></div>
 
 <!-- WALKTHROUGH -->
-<div class="portfolio-item walkthrough"><img src="GK9.jpg" alt="Walkthrough Render 1"></div>
-<div class="portfolio-item walkthrough"><img src="GK10.jpg" alt="Walkthrough Render 2"></div>
+<div class="portfolio-item walkthrough" data-caption="Walkthrough Render 1"><img src="GK9.jpg" alt="Walkthrough Render 1"></div>
+<div class="portfolio-item walkthrough" data-caption="Walkthrough Render 2"><img src="GK10.jpg" alt="Walkthrough Render 2"></div>
 
 <!-- 2D & 3D SECTIONAL -->
-<div class="portfolio-item sectional"><img src="GK11.jpg" alt="2D & 3D Sectional 1"></div>
-<div class="portfolio-item sectional"><img src="GK12.jpg" alt="2D & 3D Sectional 2"></div>
+<div class="portfolio-item sectional" data-caption="2D & 3D Sectional 1"><img src="GK11.jpg" alt="2D & 3D Sectional 1"></div>
+<div class="portfolio-item sectional" data-caption="2D & 3D Sectional 2"><img src="GK12.jpg" alt="2D & 3D Sectional 2"></div>
 </div>
 </section>
 
-<!-- Lightbox HTML -->
+<!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox">
-<span class="close" onclick="closeLightbox()">×</span>
-<span class="prev" onclick="changeSlide(-1)">❮</span>
-<span class="next" onclick="changeSlide(1)">❯</span>
-<img id="lightbox-img" src="" alt="">
+  <span class="close" onclick="closeLightbox()">×</span>
+  <span class="prev" onclick="changeSlide(-1)">❮</span>
+  <span class="next" onclick="changeSlide(1)">❯</span>
+  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-caption"></div>
 </div>
 
 <section class="section about" id="about">
@@ -141,7 +181,7 @@ footer { text-align:center; padding:30px; background:#111; color:#777; }
 <a href="https://wa.me/918459441620" class="whatsapp">💬</a>
 
 <script>
-// Portfolio Filter
+// FILTER
 filterSelection("all");
 function filterSelection(category){
   let items=document.getElementsByClassName("portfolio-item");
@@ -163,9 +203,10 @@ for(let i=0;i<btns.length;i++){
   });
 }
 
-// Lightbox functionality
+// LIGHTBOX
 let lightbox = document.getElementById("lightbox");
 let lightboxImg = document.getElementById("lightbox-img");
+let lightboxCaption = document.getElementById("lightbox-caption");
 let currentIndex = 0;
 let visibleItems = [];
 
@@ -174,28 +215,23 @@ function openLightbox(index){
   currentIndex = index;
   updateLightboxImage();
 }
-
-function closeLightbox(){
-  lightbox.style.display="none";
-}
-
+function closeLightbox(){ lightbox.style.display="none"; }
 function changeSlide(n){
   currentIndex += n;
-  if(currentIndex < 0) currentIndex = visibleItems.length - 1;
-  if(currentIndex >= visibleItems.length) currentIndex = 0;
+  if(currentIndex<0) currentIndex = visibleItems.length-1;
+  if(currentIndex>=visibleItems.length) currentIndex=0;
   updateLightboxImage();
 }
-
 function updateLightboxImage(){
-  lightboxImg.src = visibleItems[currentIndex].getElementsByTagName("img")[0].src;
+  let item = visibleItems[currentIndex];
+  lightboxImg.src = item.getElementsByTagName("img")[0].src;
+  lightboxCaption.innerText = item.getAttribute("data-caption") || "";
 }
-
-// Attach click to images
 function updateVisibleItems(){
-  visibleItems = [];
-  let items = document.getElementsByClassName("portfolio-item");
+  visibleItems=[];
+  let items=document.getElementsByClassName("portfolio-item");
   for(let i=0;i<items.length;i++){
-    if(items[i].className.indexOf("show") > -1){
+    if(items[i].className.indexOf("show")>-1){
       visibleItems.push(items[i]);
     }
   }
@@ -203,7 +239,7 @@ function updateVisibleItems(){
 document.querySelectorAll(".grid img").forEach((img,i)=>{
   img.addEventListener("click",function(){
     updateVisibleItems();
-    currentIndex = visibleItems.indexOf(img.parentElement);
+    currentIndex=visibleItems.indexOf(img.parentElement);
     openLightbox(currentIndex);
   });
 });
