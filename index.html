@@ -5,9 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>INEXT | 3D Interior & Exterior Visualization</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
+
+/* ================================
+   PREMIUM ANIMATIONS & EFFECTS
+================================ */
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade In Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cinematic Preloader */
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #0f0f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  transition: opacity 0.8s ease;
+}
+
+#preloader h1 {
+  font-family:'Playfair Display', serif;
+  letter-spacing:8px;
+  color:#d4af37;
+  font-size:40px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity:0.5; }
+  50% { opacity:1; }
+  100% { opacity:0.5; }
+}    
+    <style>
 /* BODY & BACKGROUND */
 body {
+    <div id="preloader">
+  <h1>INEXT</h1>
+</div>
     margin:0;
     font-family:'Poppins',sans-serif;
     background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
@@ -87,6 +138,9 @@ footer { text-align:center; padding:30px; background:#111; color:#777; }
 #sectional { background:#101010; }
 </style>
 </head>
+<div id="preloader">
+  <h1>INEXT</h1>
+</div>    
 <body>
 
 <header>
@@ -105,7 +159,7 @@ footer { text-align:center; padding:30px; background:#111; color:#777; }
 <a href="https://wa.me/918459441620" class="button">Contact on WhatsApp</a>
 </section>
 
-<section class="section" id="portfolio">
+<section class="section fade-in" id="portfolio">
 <h2>Selected Works</h2>
 
 <div class="filter-menu">
@@ -161,7 +215,7 @@ footer { text-align:center; padding:30px; background:#111; color:#777; }
   <div id="lightbox-caption"></div>
 </div>
 
-<section class="section about" id="about">
+<section class="section about fade-in" id="about">
 <h2>The Philosophy</h2>
 <p><strong>Great design doesn't stop at the threshold.</strong> I specialize in creating a seamless dialogue between a structure’s environment and its inner sanctuary. By blending architectural rigor with interior artistry, I provide 3D visualizations that aren't just "images"—they are blueprints for reality.</p>
 
@@ -175,7 +229,7 @@ footer { text-align:center; padding:30px; background:#111; color:#777; }
 <p>To turn your conceptual sketches into a tangible vision that secures investors, wins over clients, or simply gives you the confidence to start building.</p>
 </section>
 
-<section class="section" id="contact">
+<section class="section fade-in" id="contact">
 <h2>Connect With Me</h2>
 <p style="text-align:center;">
 <a href="https://instagram.com/inext_designs" class="button">Instagram</a>
@@ -252,6 +306,31 @@ document.querySelectorAll(".grid img").forEach((img,i)=>{
     openLightbox(currentIndex);
   });
 });
+  // PRELOADER
+window.addEventListener("load", function() {
+  let preloader = document.getElementById("preloader");
+  preloader.style.opacity = "0";
+  setTimeout(() => { preloader.style.display = "none"; }, 800);
+});
+
+// FADE-IN ON SCROLL
+const faders = document.querySelectorAll(".fade-in");
+
+const appearOptions = {
+  threshold: 0.2
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("visible");
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
+});  
 </script>
 
 </body>
