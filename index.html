@@ -6,27 +6,12 @@
 <title>INEXT | 3D Interior & Exterior Visualization</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* =========================
-   INEXT DARK LUXURY SYSTEM
-========================= */
-
-:root {
-    --bg-primary:#0e0e0e;
-    --bg-secondary:#141414;
-    --gold:#d4af37;
-    --gold-soft:#c6a75e;
-    --text-primary:#ffffff;
-    --text-secondary:#aaaaaa;
-}
-
+/* BODY & BACKGROUND */
 body {
     margin:0;
     font-family:'Poppins',sans-serif;
-    background: var(--bg-primary);
-    color:var(--text-primary);
-    letter-spacing:.5px;
-    scroll-behavior: smooth;
-    overflow-x:hidden;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color:#fff;
 }
 
 /* HEADER */
@@ -35,247 +20,74 @@ header {
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(15,15,15,0.95);
-    backdrop-filter: blur(8px);
-    border-bottom:1px solid rgba(212,175,55,0.2);
+    background:#111;
     position:sticky;
     top:0;
     z-index:1000;
 }
+.logo { font-family:'Playfair Display', serif; font-size:28px; letter-spacing:3px; }
+nav a { color:#aaa; margin-left:20px; text-decoration:none; transition:.3s; }
+nav a:hover { color:#d4af37; }
 
-.logo {
-    font-family:'Playfair Display', serif;
-    font-size:28px;
-    letter-spacing:5px;
-    color:var(--gold);
-}
-
-nav a {
-    color:var(--text-secondary);
-    margin-left:30px;
-    text-decoration:none;
-    font-weight:300;
-    transition:.3s;
-}
-
-nav a:hover {
-    color:var(--gold);
-}
-
-/* HERO */
+/* HERO SECTION */
 .hero {
-    position:relative;
-    height:100vh;
+    height:90vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
     padding:0 20px;
-    overflow:hidden;
-    color:var(--gold);
 }
-
-.hero h1 {
-    font-size:80px;
-    font-family:'Playfair Display', serif;
-    margin:0;
-    letter-spacing:8px;
-    z-index:2;
-    position:relative;
-}
-
-.hero p {
-    font-size:18px;
-    color:var(--text-secondary);
-    margin:25px 0;
-    letter-spacing:4px;
-    text-transform:capitalize; /* capitalize first letter of each word */
-    z-index:2;
-    position:relative;
-}
-
-.button {
-    padding:14px 32px;
-    border:1px solid var(--gold);
-    color:var(--gold);
-    text-decoration:none;
-    margin:10px;
-    transition:.4s;
-    letter-spacing:2px;
-    z-index:2;
-    position:relative;
-}
-
-.button:hover {
-    background:var(--gold);
-    color:#000;
-}
-
-/* HERO CANVAS BACKGROUND */
-#heroCanvas {
-    position:absolute;
-    top:0; left:0;
-    width:100%;
-    height:100%;
-    z-index:1;
-}
+.hero h1 { font-size: clamp(32px, 8vw, 60px); font-family:'Playfair Display', serif; margin:0; }
+.hero p { font-size: clamp(14px, 4vw, 20px); color:#ccc; margin:20px 0; text-transform: capitalize; }
+.button { padding:12px 28px; border:1px solid #d4af37; color:#d4af37; text-decoration:none; margin:10px; transition:.3s; }
+.button:hover { background:#d4af37; color:#000; }
 
 /* SECTIONS */
-.section {
-    padding:100px 10%;
-    opacity:0;
-    transform: translateY(40px);
-    transition: all 1s ease;
-}
-
-.section.visible {
-    opacity:1;
-    transform: translateY(0);
-}
-
-.section h2 {
-    text-align:center;
-    font-family:'Playfair Display', serif;
-    margin-bottom:20px;
-    font-size:38px;
-    letter-spacing:4px;
-}
-
-.section h2::after {
-    content:"";
-    display:block;
-    width:80px;
-    height:2px;
-    background:var(--gold);
-    margin:20px auto 40px;
-}
-
-/* GRID */
-.grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
-}
-
-.grid img {
-    width:100%;
-    display:block;
-    transition:.5s;
-    border-radius:4px;
-    cursor:pointer;
-}
-
-.grid img:hover {
-    transform:scale(1.04);
-    box-shadow:0 20px 40px rgba(0,0,0,0.6);
-}
+.section { padding:80px 10%; }
+.section h2 { text-align:center; font-family:'Playfair Display', serif; margin-bottom:40px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+.grid img { width:100%; display:block; transition:.4s; border-radius:10px; cursor:pointer; }
+.grid img:hover { transform:scale(1.05); }
+.about p { line-height:1.8; color:#ccc; }
+footer { text-align:center; padding:30px; background:#111; color:#777; }
+.whatsapp { position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px; border-radius:50%; text-decoration:none; font-size:22px; }
 
 /* FILTER MENU */
-.filter-menu {
-    text-align:center;
-    margin-bottom:50px;
-}
+.filter-menu { text-align:center; margin-bottom:40px; }
+.filter-menu button { border:1px solid #d4af37; background:transparent; color:#d4af37; padding:10px 20px; margin:5px; cursor:pointer; transition:.3s; border-radius:5px; }
+.filter-menu button.active, .filter-menu button:hover { background:#d4af37; color:#000; }
 
-.filter-menu button {
-    border:1px solid var(--gold);
-    background:transparent;
-    color:var(--gold);
-    padding:12px 24px;
-    margin:8px;
-    cursor:pointer;
-    transition:.3s;
-    letter-spacing:2px;
-}
-
-.filter-menu button.active,
-.filter-menu button:hover {
-    background:var(--gold);
-    color:#000;
-}
-
-/* ABOUT */
-.about p {
-    line-height:1.9;
-    color:var(--text-secondary);
-    max-width:900px;
-    margin:0 auto 25px auto;
-}
-
-/* FOOTER */
-footer {
-    text-align:center;
-    padding:40px;
-    background:#0a0a0a;
-    color:#666;
-    border-top:1px solid rgba(212,175,55,0.2);
-}
-
-/* WHATSAPP */
-.whatsapp {
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    background:#25D366;
-    color:white;
-    padding:15px;
-    border-radius:50%;
-    text-decoration:none;
-    font-size:22px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.5);
-}
+.portfolio-item { display:none; }
+.show { display:block; }
 
 /* LIGHTBOX */
 .lightbox {
-  display:none; position:fixed; z-index:2000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); justify-content:center; align-items:center; flex-direction:column;
+  display:none; position:fixed; z-index:2000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); justify-content:center; align-items:center;
+  flex-direction:column;
 }
 .lightbox img { max-width:90%; max-height:80%; border-radius:10px; margin-bottom:10px; }
 .lightbox .close, .lightbox .prev, .lightbox .next {
-  position:absolute; top:50%; transform:translateY(-50%); color:var(--gold); font-size:50px; cursor:pointer; user-select:none;
+  position:absolute; top:50%; transform:translateY(-50%); color:#d4af37; font-size:50px; cursor:pointer; user-select:none;
 }
 .lightbox .close { top:20px; right:30px; transform:none; font-size:40px; }
 .lightbox .prev { left:30px; }
 .lightbox .next { right:30px; }
-#lightbox-caption { color:var(--gold); font-family:'Poppins',sans-serif; font-size:18px; text-align:center; }
 
-/* SECTION BACKGROUNDS */
+/* LIGHTBOX CAPTION */
+#lightbox-caption { color:#d4af37; font-family:'Poppins',sans-serif; font-size:18px; text-align:center; }
+
+/* SECTION-SPECIFIC BACKGROUNDS */
 #portfolio { background: linear-gradient(to bottom, #0f0f0f 0%, #111 100%); }
 #interior { background:#111111; }
 #exterior { background:#121212; }
 #elevation { background:#0e0e0e; }
 #walkthrough { background:#131313; }
 #sectional { background:#101010; }
-
-/* PRELOADER */
-#preloader {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: #0f0f0f;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3000;
-  transition: opacity 0.8s ease;
-}
-#preloader h1 {
-  font-family:'Playfair Display', serif;
-  letter-spacing:8px;
-  color:var(--gold);
-  font-size:40px;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0% { opacity:0.5; }
-  50% { opacity:1; }
-  100% { opacity:0.5; }
-}
 </style>
 </head>
 <body>
-
-<!-- PRELOADER -->
-<div id="preloader"><h1>INEXT</h1></div>
 
 <header>
 <div class="logo">INEXT</div>
@@ -286,24 +98,23 @@ footer {
 </nav>
 </header>
 
-<section class="hero fade-in">
-<canvas id="heroCanvas"></canvas>
+<section class="hero">
 <h1>INEXT</h1>
 <p>Designing Inside. Defining Outside.</p>
 <a href="#portfolio" class="button">View Portfolio</a>
 <a href="https://wa.me/918459441620" class="button">Contact on WhatsApp</a>
 </section>
 
-<section class="section fade-in" id="portfolio">
+<section class="section" id="portfolio">
 <h2>Selected Works</h2>
 
 <div class="filter-menu">
-<button class="filter-btn active" onclick="filterSelection('all')">All</button>
-<button class="filter-btn" onclick="filterSelection('interior')">Interior</button>
-<button class="filter-btn" onclick="filterSelection('exterior')">Exterior</button>
-<button class="filter-btn" onclick="filterSelection('elevation')">Elevation</button>
-<button class="filter-btn" onclick="filterSelection('walkthrough')">Walkthrough</button>
-<button class="filter-btn" onclick="filterSelection('sectional')">2D & 3D Sectional</button>
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="interior">Interior</button>
+<button class="filter-btn" data-filter="exterior">Exterior</button>
+<button class="filter-btn" data-filter="elevation">Elevation</button>
+<button class="filter-btn" data-filter="walkthrough">Walkthrough</button>
+<button class="filter-btn" data-filter="sectional">2D & 3D Sectional</button>
 </div>
 
 <div class="grid">
@@ -311,33 +122,31 @@ footer {
 <div class="portfolio-item interior" data-caption="Interior Render 1"><img src="ktch1.jpg" alt="Interior Render 1"></div>
 <div class="portfolio-item interior" data-caption="Interior Render 2"><img src="ktch2.jpg" alt="Interior Render 2"></div>
 <div class="portfolio-item interior" data-caption="Interior Render 3"><img src="ktch3.jpg" alt="Interior Render 3"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 4"><img src="ktch4.jpg" alt="Interior Render 4"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 5"><img src="ktch5.jpg" alt="Interior Render 5"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 6"><img src="ktch6.jpg" alt="Interior Render 6"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 7"><img src="ktch7.jpg" alt="Interior Render 7"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 8"><img src="GLV.jpg" alt="Interior Render 8"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 9"><img src="BD3.jpg" alt="Interior Render 9"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 10"><img src="BDM1.jpg" alt="Interior Render 10"></div>
-   
+<div class="portfolio-item interior" data-caption="Interior Render 4"><img src="ktch4.jpg" alt="Interior Render 4"></div>    
+<div class="portfolio-item interior" data-caption="Interior Render 5"><img src="GLV.jpg" alt="Interior Render 5"></div>
+<div class="portfolio-item interior" data-caption="Interior Render 6"><img src="BDM1.jpg" alt="Interior Render 6"></div>
+<div class="portfolio-item interior" data-caption="Interior Render 7"><img src="BD3.jpg" alt="Interior Render 7"></div>
+    
 <!-- EXTERIOR -->
 <div class="portfolio-item exterior" data-caption="Exterior Render 1"><img src="mith.jpg" alt="Exterior Render 1"></div>
 <div class="portfolio-item exterior" data-caption="Exterior Render 2"><img src="mith1.jpg" alt="Exterior Render 2"></div>
+<div class="portfolio-item exterior" data-caption="Exterior Render 3"><img src="GK5.jpg" alt="Exterior Render 3"></div>
 
 <!-- ELEVATION -->
 <div class="portfolio-item elevation" data-caption="Elevation Render 1"><img src="Ade1.jpg" alt="Elevation Render 1"></div>
 <div class="portfolio-item elevation" data-caption="Elevation Render 2"><img src="Ade2.jpg" alt="Elevation Render 2"></div>
 <div class="portfolio-item elevation" data-caption="Elevation Render 3"><img src="Image 03.png" alt="Elevation Render 3"></div>
 <div class="portfolio-item elevation" data-caption="Elevation Render 4"><img src="hm1.jpg" alt="Elevation Render 4"></div>
-   
+    
 <!-- WALKTHROUGH -->
 <div class="portfolio-item walkthrough" data-caption="Walkthrough Render 1"><img src="GK9.jpg" alt="Walkthrough Render 1"></div>
-<div class="portfolio-item walkthrough" data-caption="Walkthrough Render 2"><img src="GK10.jpg" alt="Walkthrough Render 2"></div>
-
+<div class="portfolio-item walkthrough" data-caption="Walkthrough Render 2"><img src="GK10.jpg" alt="Walkthrough Render 2"></div>   
+  
 <!-- 2D & 3D SECTIONAL -->
 <div class="portfolio-item sectional" data-caption="2D & 3D Sectional 1"><img src="FLOORP0.jpg" alt="2D & 3D Sectional 1"></div>
 <div class="portfolio-item sectional" data-caption="2D & 3D Sectional 2"><img src="FLOORP1.jpg" alt="2D & 3D Sectional 2"></div>
 <div class="portfolio-item sectional" data-caption="2D & 3D Sectional 3"><img src="FLOORP2.jpg" alt="2D & 3D Sectional 3"></div>
-<div class="portfolio-item sectional" data-caption="2D & 3D Sectional 4"><img src="FLOORP3.jpg" alt="2D & 3D Sectional 4"></div>  
+<div class="portfolio-item sectional" data-caption="2D & 3D Sectional 4"><img src="FLOORP3.jpg" alt="2D & 3D Sectional 4"></div>
 </div>
 </section>
 
@@ -350,11 +159,11 @@ footer {
   <div id="lightbox-caption"></div>
 </div>
 
-<section class="section about fade-in" id="about">
+<section class="section about" id="about">
 <h2>The Philosophy</h2>
 <p><strong>Great design doesn't stop at the threshold.</strong> I specialize in creating a seamless dialogue between a structure’s environment and its inner sanctuary. By blending architectural rigor with interior artistry, I provide 3D visualizations that aren't just "images"—they are blueprints for reality.</p>
 
- <h2>What I Do</h2>
+<h2>What I Do</h2>
 <p>I help architects, developers, and private clients eliminate the "what ifs." Through high-fidelity rendering and immersive 3D modeling, I bring every texture, shadow, and structural detail to light.</p>
 
 <p><strong>The Inside:</strong> Focused on ergonomics, mood, and the tactile details that make a space feel like home (or work).</p>
@@ -364,7 +173,7 @@ footer {
 <p>To turn your conceptual sketches into a tangible vision that secures investors, wins over clients, or simply gives you the confidence to start building.</p>
 </section>
 
-<section class="section fade-in" id="contact">
+<section class="section" id="contact">
 <h2>Connect With Me</h2>
 <p style="text-align:center;">
 <a href="https://instagram.com/inext_designs" class="button">Instagram</a>
@@ -379,131 +188,82 @@ footer {
 <a href="https://wa.me/918459441620" class="whatsapp">💬</a>
 
 <script>
-// ==========================
-// PORTFOLIO FILTER
-// ==========================
-filterSelection("all");
-function filterSelection(category){
-  let items=document.getElementsByClassName("portfolio-item");
-  if(category==="all") category="";
-  for(let i=0;i<items.length;i++){
-    removeClass(items[i],"show");
-    if(items[i].className.indexOf(category)>-1) addClass(items[i],"show");
+// Ensure DOM is loaded before running JS
+document.addEventListener("DOMContentLoaded", function() {
+
+  // FILTER
+  function filterSelection(category){
+    let items = document.getElementsByClassName("portfolio-item");
+    if(category==="all") category="";
+    for(let i=0;i<items.length;i++){
+      items[i].classList.remove("show");
+      if(items[i].className.indexOf(category) > -1) items[i].classList.add("show");
+    }
+    updateVisibleItems();
   }
-}
-function addClass(element,name){let arr=element.className.split(" "); if(arr.indexOf(name)===-1) element.className+=" "+name;}
-function removeClass(element,name){let arr=element.className.split(" "); while(arr.indexOf(name)>-1){arr.splice(arr.indexOf(name),1);} element.className=arr.join(" ");}
 
-let btnContainer=document.getElementsByClassName("filter-menu")[0];
-let btns=btnContainer.getElementsByClassName("filter-btn");
-for(let i=0;i<btns.length;i++){
-  btns[i].addEventListener("click",function(){
-    let current=btnContainer.getElementsByClassName("active")[0];
-    current.className=current.className.replace(" active","");
-    this.className+=" active";
-  });
-}
+  let btnContainer = document.getElementsByClassName("filter-menu")[0];
+  let btns = btnContainer.getElementsByClassName("filter-btn");
+  for(let i=0;i<btns.length;i++){
+    btns[i].addEventListener("click", function(){
+      let current = btnContainer.getElementsByClassName("active")[0];
+      current.classList.remove("active");
+      this.classList.add("active");
+      filterSelection(this.getAttribute("data-filter"));
+    });
+  }
 
-// ==========================
-// LIGHTBOX
-// ==========================
-let lightbox = document.getElementById("lightbox");
-let lightboxImg = document.getElementById("lightbox-img");
-let lightboxCaption = document.getElementById("lightbox-caption");
-let currentIndex = 0;
-let visibleItems = [];
+  filterSelection("all"); // show all by default
 
-function openLightbox(index){
-  lightbox.style.display="flex";
-  currentIndex = index;
-  updateLightboxImage();
-}
-function closeLightbox(){ lightbox.style.display="none"; }
-function changeSlide(n){
-  currentIndex += n;
-  if(currentIndex<0) currentIndex = visibleItems.length-1;
-  if(currentIndex>=visibleItems.length) currentIndex=0;
-  updateLightboxImage();
-}
-function updateLightboxImage(){
-  let item = visibleItems[currentIndex];
-  lightboxImg.src = item.getElementsByTagName("img")[0].src;
-  lightboxCaption.innerText = item.getAttribute("data-caption") || "";
-}
-function updateVisibleItems(){
-  visibleItems=[];
-  let items=document.getElementsByClassName("portfolio-item");
-  for(let i=0;i<items.length;i++){
-    if(items[i].className.indexOf("show")>-1){
-      visibleItems.push(items[i]);
+  // LIGHTBOX
+  let lightbox = document.getElementById("lightbox");
+  let lightboxImg = document.getElementById("lightbox-img");
+  let lightboxCaption = document.getElementById("lightbox-caption");
+  let currentIndex = 0;
+  let visibleItems = [];
+
+  function updateVisibleItems(){
+    visibleItems = [];
+    let items = document.getElementsByClassName("portfolio-item");
+    for(let i=0;i<items.length;i++){
+      if(items[i].classList.contains("show")) visibleItems.push(items[i]);
     }
   }
-}
-document.querySelectorAll(".grid img").forEach((img,i)=>{
-  img.addEventListener("click",function(){
-    updateVisibleItems();
-    currentIndex=visibleItems.indexOf(img.parentElement);
-    openLightbox(currentIndex);
-  });
-});
 
-// ==========================
-// PRELOADER
-// ==========================
-window.addEventListener("load", function() {
-  let preloader = document.getElementById("preloader");
-  preloader.style.opacity = "0";
-  setTimeout(() => { preloader.style.display = "none"; }, 800);
-});
-
-// ==========================
-// FADE-IN ON SCROLL
-// ==========================
-const faders = document.querySelectorAll(".fade-in");
-const appearOptions = { threshold: 0.2 };
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("visible");
-    observer.unobserve(entry.target);
-  });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
-
-// ==========================
-// HERO 3D GRID BACKGROUND
-// ==========================
-const canvas = document.getElementById('heroCanvas');
-const ctx = canvas.getContext('2d');
-let w, h;
-function resizeCanvas(){ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; }
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-
-const gridLines = [];
-const lineCount = 25;
-for(let i=0;i<lineCount;i++){
-  gridLines.push({x:Math.random()*w, y:Math.random()*h, dx:(Math.random()-0.5)*0.5, dy:(Math.random()-0.5)*0.5});
-}
-
-function animateGrid(){
-  ctx.clearRect(0,0,w,h);
-  ctx.strokeStyle = 'rgba(212,175,55,0.2)';
-  ctx.lineWidth = 1;
-  for(let i=0;i<gridLines.length;i++){
-    let p = gridLines[i];
-    ctx.beginPath();
-    ctx.moveTo(p.x,p.y);
-    ctx.lineTo(p.x + Math.sin(Date.now()/2000 + i)*50, p.y + Math.cos(Date.now()/2000 + i)*50);
-    ctx.stroke();
-    p.x += p.dx; p.y += p.dy;
-    if(p.x<0||p.x>w) p.dx*=-1;
-    if(p.y<0||p.y>h) p.dy*=-1;
+  function openLightbox(index){
+    lightbox.style.display="flex";
+    currentIndex = index;
+    updateLightboxImage();
   }
-  requestAnimationFrame(animateGrid);
-}
-animateGrid();
+  function closeLightbox(){ lightbox.style.display="none"; }
+  function changeSlide(n){
+    currentIndex += n;
+    if(currentIndex<0) currentIndex = visibleItems.length-1;
+    if(currentIndex>=visibleItems.length) currentIndex=0;
+    updateLightboxImage();
+  }
+  function updateLightboxImage(){
+    let item = visibleItems[currentIndex];
+    lightboxImg.src = item.getElementsByTagName("img")[0].src;
+    lightboxCaption.innerText = item.getAttribute("data-caption") || "";
+  }
 
+  document.querySelectorAll(".grid img").forEach((img,i)=>{
+    img.addEventListener("click", function(){
+      updateVisibleItems();
+      currentIndex = visibleItems.indexOf(img.parentElement);
+      openLightbox(currentIndex);
+    });
+  });
+
+  // Expose functions globally
+  window.openLightbox = openLightbox;
+  window.closeLightbox = closeLightbox;
+  window.changeSlide = changeSlide;
+
+});
 </script>
+
 </body>
+</html>
 </html>
