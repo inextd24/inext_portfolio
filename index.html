@@ -25,7 +25,7 @@ header {
     top:0;
     z-index:1000;
 }
-.logo { font-family:'Playfair Display', serif; font-size:28px; letter-spacing:3px; }
+.logo { font-family:'Playfair Display', serif; font-size:28px; letter-spacing:3px; color:#d4af37; }
 nav a { color:#aaa; margin-left:20px; text-decoration:none; transition:.3s; }
 nav a:hover { color:#d4af37; }
 
@@ -38,11 +38,45 @@ nav a:hover { color:#d4af37; }
     align-items:center;
     text-align:center;
     padding:0 20px;
+    overflow:hidden;
 }
-.hero h1 { font-size:60px; font-family:'Playfair Display', serif; margin:0; }
-.hero p { font-size:20px; color:#ccc; margin:20px 0; text-transform:uppercase; }
-.button { padding:12px 28px; border:1px solid #d4af37; color:#d4af37; text-decoration:none; margin:10px; transition:.3s; }
+.hero h1 { 
+    font-size:60px; 
+    font-family:'Playfair Display', serif; 
+    margin:0; 
+    color:#d4af37; /* GOLD color for INEXT */
+    opacity:0;
+    transform: scale(0.9);
+    animation: fadeInScale 1.5s forwards;
+}
+.hero p { 
+    font-size:20px; 
+    color:#fff; 
+    margin:20px 0; 
+    text-transform:uppercase; 
+    opacity:0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s 0.5s forwards;
+}
+.button { 
+    padding:12px 28px; 
+    border:1px solid #d4af37; 
+    color:#d4af37; 
+    text-decoration:none; 
+    margin:10px; 
+    transition:.3s; 
+    opacity:0; 
+    transform: translateY(20px); 
+    animation: fadeInUp 1.5s 1s forwards; 
+}
 .button:hover { background:#d4af37; color:#000; }
+
+@keyframes fadeInScale {
+    to { opacity:1; transform: scale(1); }
+}
+@keyframes fadeInUp {
+    to { opacity:1; transform: translateY(0); }
+}
 
 /* SECTIONS */
 .section { padding:80px 10%; }
