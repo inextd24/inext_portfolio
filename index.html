@@ -39,8 +39,8 @@ nav a:hover { color:#d4af37; }
     text-align:center;
     padding:0 20px;
 }
-.hero h1 { font-size: clamp(32px, 8vw, 60px); font-family:'Playfair Display', serif; margin:0; }
-.hero p { font-size: clamp(14px, 4vw, 20px); color:#ccc; margin:20px 0; text-transform: capitalize; }
+.hero h1 { font-size:60px; font-family:'Playfair Display', serif; margin:0; }
+.hero p { font-size:20px; color:#ccc; margin:20px 0; text-transform:uppercase; }
 .button { padding:12px 28px; border:1px solid #d4af37; color:#d4af37; text-decoration:none; margin:10px; transition:.3s; }
 .button:hover { background:#d4af37; color:#000; }
 
@@ -100,7 +100,7 @@ footer { text-align:center; padding:30px; background:#111; color:#777; }
 
 <section class="hero">
 <h1>INEXT</h1>
-<p>Designing Inside. Defining Outside.</p>
+<p>DESIGNING INSIDE. DEFINING OUTSIDE.</p>
 <a href="#portfolio" class="button">View Portfolio</a>
 <a href="https://wa.me/918459441620" class="button">Contact on WhatsApp</a>
 </section>
@@ -188,47 +188,45 @@ footer { text-align:center; padding:30px; background:#111; color:#777; }
 <a href="https://wa.me/918459441620" class="whatsapp">💬</a>
 
 <script>
-// Ensure DOM is loaded before running JS
 document.addEventListener("DOMContentLoaded", function() {
 
-  // FILTER
-  function filterSelection(category){
-    let items = document.getElementsByClassName("portfolio-item");
-    if(category==="all") category="";
-    for(let i=0;i<items.length;i++){
+  const items = document.getElementsByClassName("portfolio-item");
+  const btns = document.querySelectorAll(".filter-btn");
+  let visibleItems = [];
+
+  function filterSelection(category) {
+    for (let i = 0; i < items.length; i++) {
       items[i].classList.remove("show");
-      if(items[i].className.indexOf(category) > -1) items[i].classList.add("show");
+      if (category === "all" || items[i].classList.contains(category)) {
+        items[i].classList.add("show");
+      }
     }
     updateVisibleItems();
   }
 
-  let btnContainer = document.getElementsByClassName("filter-menu")[0];
-  let btns = btnContainer.getElementsByClassName("filter-btn");
-  for(let i=0;i<btns.length;i++){
-    btns[i].addEventListener("click", function(){
-      let current = btnContainer.getElementsByClassName("active")[0];
-      current.classList.remove("active");
+  function updateVisibleItems() {
+    visibleItems = [];
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].classList.contains("show")) visibleItems.push(items[i]);
+    }
+  }
+
+  // Button click
+  btns.forEach(btn => {
+    btn.addEventListener("click", function() {
+      btns.forEach(b => b.classList.remove("active"));
       this.classList.add("active");
       filterSelection(this.getAttribute("data-filter"));
     });
-  }
+  });
 
   filterSelection("all"); // show all by default
 
   // LIGHTBOX
-  let lightbox = document.getElementById("lightbox");
-  let lightboxImg = document.getElementById("lightbox-img");
-  let lightboxCaption = document.getElementById("lightbox-caption");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxCaption = document.getElementById("lightbox-caption");
   let currentIndex = 0;
-  let visibleItems = [];
-
-  function updateVisibleItems(){
-    visibleItems = [];
-    let items = document.getElementsByClassName("portfolio-item");
-    for(let i=0;i<items.length;i++){
-      if(items[i].classList.contains("show")) visibleItems.push(items[i]);
-    }
-  }
 
   function openLightbox(index){
     lightbox.style.display="flex";
@@ -243,12 +241,12 @@ document.addEventListener("DOMContentLoaded", function() {
     updateLightboxImage();
   }
   function updateLightboxImage(){
-    let item = visibleItems[currentIndex];
+    const item = visibleItems[currentIndex];
     lightboxImg.src = item.getElementsByTagName("img")[0].src;
     lightboxCaption.innerText = item.getAttribute("data-caption") || "";
   }
 
-  document.querySelectorAll(".grid img").forEach((img,i)=>{
+  document.querySelectorAll(".grid img").forEach((img) => {
     img.addEventListener("click", function(){
       updateVisibleItems();
       currentIndex = visibleItems.indexOf(img.parentElement);
@@ -256,7 +254,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  // Expose functions globally
   window.openLightbox = openLightbox;
   window.closeLightbox = closeLightbox;
   window.changeSlide = changeSlide;
@@ -265,5 +262,4 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 </body>
-</html>
 </html>
