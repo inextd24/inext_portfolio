@@ -4,315 +4,1215 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>INEXT | 3D Interior & Exterior Visualization</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-/* BODY & BACKGROUND */
+/* =========================
+   BODY & BACKGROUND
+========================= */
 body {
-    margin:0;
-    font-family:'Poppins',sans-serif;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-    color:#fff;
+    color: #fff;
 }
 
-/* HEADER */
+body.lightbox-open {
+    overflow: hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
 header {
-    padding:20px 10%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:#111;
-    position:sticky;
-    top:0;
-    z-index:1000;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-.logo { font-family:'Playfair Display', serif; font-size:28px; letter-spacing:3px; color:#d4af37; }
-nav a { color:#aaa; margin-left:20px; text-decoration:none; transition:.3s; }
-nav a:hover { color:#d4af37; }
 
-/* HERO SECTION */
-.hero {
-    height:90vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:0 20px;
-    overflow:hidden;
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: #d4af37;
 }
-.hero h1 { 
-    font-size:60px; 
-    font-family:'Playfair Display', serif; 
-    margin:0; 
-    color:#d4af37; /* GOLD color for INEXT */
-    opacity:0;
-    transform: scale(0.9);
+
+nav a {
+    color: #aaa;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #d4af37;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    color: #d4af37;
+    opacity: 0;
+    transform: scale(.9);
     animation: fadeInScale 1.5s forwards;
 }
-.hero p { 
-    font-size:20px; 
-    color:#fff; 
-    margin:20px 0; 
-    text-transform:uppercase; 
-    opacity:0;
+
+.hero p {
+    font-size: 20px;
+    color: #fff;
+    margin: 20px 0;
+    text-transform: uppercase;
+    opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUp 1.5s 0.5s forwards;
+    animation: fadeInUp 1.5s .5s forwards;
 }
-.button { 
-    padding:12px 28px; 
-    border:1px solid #d4af37; 
-    color:#d4af37; 
-    text-decoration:none; 
-    margin:10px; 
-    transition:.3s; 
-    opacity:0; 
-    transform: translateY(20px); 
-    animation: fadeInUp 1.5s 1s forwards; 
+
+.button {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    text-decoration: none;
+    margin: 10px;
+    transition: .3s;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s 1s forwards;
 }
-.button:hover { background:#d4af37; color:#000; }
+
+.button:hover {
+    background: #d4af37;
+    color: #000;
+}
 
 @keyframes fadeInScale {
-    to { opacity:1; transform: scale(1); }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
+
 @keyframes fadeInUp {
-    to { opacity:1; transform: translateY(0); }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* SECTIONS */
-.section { padding:80px 10%; }
-.section h2 { text-align:center; font-family:'Playfair Display', serif; margin-bottom:40px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
-.grid img { width:100%; display:block; transition:.4s; border-radius:10px; cursor:pointer; }
-.grid img:hover { transform:scale(1.05); }
-.about p { line-height:1.8; color:#ccc; }
-footer { text-align:center; padding:30px; background:#111; color:#777; }
-.whatsapp { position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px; border-radius:50%; text-decoration:none; font-size:22px; }
+/* =========================
+   SECTIONS
+========================= */
+.section {
+    padding: 80px 10%;
+}
 
-/* FILTER MENU */
-.filter-menu { text-align:center; margin-bottom:40px; }
-.filter-menu button { border:1px solid #d4af37; background:transparent; color:#d4af37; padding:10px 20px; margin:5px; cursor:pointer; transition:.3s; border-radius:5px; }
-.filter-menu button.active, .filter-menu button:hover { background:#d4af37; color:#000; }
+.section h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 40px;
+}
 
-.portfolio-item { display:none; }
-.show { display:block; }
+.about p {
+    line-height: 1.8;
+    color: #ccc;
+}
 
-/* LIGHTBOX */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #111;
+    color: #777;
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 22px;
+    z-index: 1500;
+}
+
+/* =========================
+   FILTER MENU
+========================= */
+.filter-menu {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.filter-menu button {
+    border: 1px solid #d4af37;
+    background: transparent;
+    color: #d4af37;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filter-menu button.active,
+.filter-menu button:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+/* =========================
+   PROJECT GRID
+========================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.portfolio-item {
+    display: none;
+}
+
+.portfolio-item.show {
+    display: block;
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #151515;
+    cursor: pointer;
+    min-height: 250px;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s ease, filter .6s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(.75);
+}
+
+.project-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 50px 22px 22px;
+    background: linear-gradient(transparent, rgba(0,0,0,.9));
+    pointer-events: none;
+}
+
+.project-overlay h3 {
+    margin: 0 0 5px;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+}
+
+.project-overlay p {
+    margin: 0;
+    color: #d4af37;
+    font-size: 13px;
+    letter-spacing: .5px;
+}
+
+.image-count {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0,0,0,.7);
+    color: #d4af37;
+    border: 1px solid rgba(212,175,55,.7);
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    z-index: 2;
+}
+
+/* =========================
+   LIGHTBOX / PROJECT GALLERY
+========================= */
 .lightbox {
-  display:none; position:fixed; z-index:2000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); justify-content:center; align-items:center;
-  flex-direction:column;
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.97);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
 }
-.lightbox img { max-width:90%; max-height:80%; border-radius:10px; margin-bottom:10px; }
-.lightbox .close, .lightbox .prev, .lightbox .next {
-  position:absolute; top:50%; transform:translateY(-50%); color:#d4af37; font-size:50px; cursor:pointer; user-select:none;
+
+.lightbox.active {
+    display: flex;
 }
-.lightbox .close { top:20px; right:30px; transform:none; font-size:40px; }
-.lightbox .prev { left:30px; }
-.lightbox .next { right:30px; }
 
-/* LIGHTBOX CAPTION */
-#lightbox-caption { color:#d4af37; font-family:'Poppins',sans-serif; font-size:18px; text-align:center; }
+.lightbox-content {
+    width: min(1200px, 94vw);
+    height: min(88vh, 900px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 
-/* SECTION-SPECIFIC BACKGROUNDS */
-#portfolio { background: linear-gradient(to bottom, #0f0f0f 0%, #111 100%); }
-#elevation { background:#0e0e0e; }
-#interior { background:#111111; }
-#exterior { background:#121212; }
-#walkthrough { background:#131313; }
-#sectional { background:#101010; }
+.lightbox-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+.lightbox-title {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+}
+
+.lightbox-counter {
+    color: #d4af37;
+    font-size: 14px;
+}
+
+.lightbox-main {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#lightbox-img {
+    max-width: 88%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 50px rgba(0,0,0,.5);
+    transition: opacity .25s ease;
+}
+
+#lightbox-caption {
+    color: #d4af37;
+    font-size: 15px;
+    text-align: center;
+    margin: 12px 0;
+}
+
+.lightbox .close,
+.lightbox .prev,
+.lightbox .next {
+    position: absolute;
+    color: #d4af37;
+    cursor: pointer;
+    user-select: none;
+    z-index: 5;
+    transition: .3s;
+}
+
+.lightbox .close:hover,
+.lightbox .prev:hover,
+.lightbox .next:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.lightbox .close {
+    top: 18px;
+    right: 28px;
+    font-size: 42px;
+    line-height: 1;
+}
+
+.lightbox .prev,
+.lightbox .next {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    padding: 20px;
+}
+
+.lightbox .prev {
+    left: 0;
+}
+
+.lightbox .next {
+    right: 0;
+}
+
+.lightbox .prev:hover,
+.lightbox .next:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Thumbnail strip */
+.thumbnail-strip {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px 4px 3px;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #d4af37 #222;
+}
+
+.thumbnail {
+    width: 82px;
+    height: 56px;
+    object-fit: cover;
+    flex: 0 0 auto;
+    border-radius: 5px;
+    opacity: .45;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: .25s;
+}
+
+.thumbnail:hover {
+    opacity: .8;
+}
+
+.thumbnail.active {
+    opacity: 1;
+    border-color: #d4af37;
+}
+
+/* =========================
+   SECTION BACKGROUNDS
+========================= */
+#portfolio {
+    background: linear-gradient(to bottom, #0f0f0f 0%, #111 100%);
+}
+
+#elevation {
+    background: #0e0e0e;
+}
+
+#interior {
+    background: #111;
+}
+
+#exterior {
+    background: #121212;
+}
+
+#walkthrough {
+    background: #131313;
+}
+
+#sectional {
+    background: #101010;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    header {
+        padding: 18px 5%;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lightbox-content {
+        width: 100%;
+        height: 90vh;
+    }
+
+    #lightbox-img {
+        max-width: 94%;
+    }
+
+    .lightbox .prev,
+    .lightbox .next {
+        font-size: 32px;
+        padding: 10px;
+    }
+
+    .lightbox .prev {
+        left: -5px;
+    }
+
+    .lightbox .next {
+        right: -5px;
+    }
+
+    .lightbox-title {
+        font-size: 17px;
+    }
+
+    .thumbnail {
+        width: 70px;
+        height: 48px;
+    }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="logo">INEXT</div>
-<nav>
-<a href="#portfolio">Portfolio</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
+    <div class="logo">INEXT</div>
+    <nav>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
 <section class="hero">
-<h1>INEXT</h1>
-<p>DESIGNING INSIDE. DEFINING OUTSIDE.</p>
-<a href="#portfolio" class="button">View Portfolio</a>
-<a href="https://wa.me/918459441620" class="button">Contact on WhatsApp</a>
+    <h1>INEXT</h1>
+    <p>DESIGNING INSIDE. DEFINING OUTSIDE.</p>
+    <a href="#portfolio" class="button">View Portfolio</a>
+    <a href="https://wa.me/918459441620" class="button">Contact on WhatsApp</a>
 </section>
 
 <section class="section" id="portfolio">
-<h2>Selected Works</h2>
+    <h2>Selected Works</h2>
 
-<div class="filter-menu">
-<button class="filter-btn active" data-filter="all">All</button>
-<button class="filter-btn" data-filter="elevation">Elevation</button>
-<button class="filter-btn" data-filter="interior">Interior</button>
-<button class="filter-btn" data-filter="exterior">Exterior</button>
-<button class="filter-btn" data-filter="walkthrough">Walkthrough</button>
-<button class="filter-btn" data-filter="sectional">2D & 3D Sectional</button>
-</div>
+    <div class="filter-menu">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="elevation">Elevation</button>
+        <button class="filter-btn" data-filter="interior">Interior</button>
+        <button class="filter-btn" data-filter="exterior">Exterior</button>
+        <button class="filter-btn" data-filter="walkthrough">Walkthrough</button>
+        <button class="filter-btn" data-filter="sectional">2D & 3D Sectional</button>
+    </div>
 
-<div class="grid">
-<!-- ELEVATION -->
-<div class="portfolio-item elevation" data-caption="Elevation Render 1"><img src="DA 1.jpg" alt="Elevation Render 1"></div>
-<div class="portfolio-item elevation" data-caption="Elevation Render 2"><img src="FRS.jpg" alt="Elevation Render 2"></div>
-<div class="portfolio-item elevation" data-caption="Elevation Render 3"><img src="opt ss 2.jpg" alt="Elevation Render 3"></div>   
-<div class="portfolio-item elevation" data-caption="Elevation Render 4"><img src="opt ss.jpg" alt="Elevation Render 4"></div>   
-<div class="portfolio-item elevation" data-caption="Elevation Render 5"><img src="SS.jpg" alt="Elevation Render 5"></div>   
-<div class="portfolio-item elevation" data-caption="Elevation Render 6"><img src="Ade1.jpg" alt="Elevation Render 6"></div>
-<div class="portfolio-item elevation" data-caption="Elevation Render 7"><img src="Ade2.jpg" alt="Elevation Render 7"></div>
-<div class="portfolio-item elevation" data-caption="Elevation Render 8"><img src="Image 03.png" alt="Elevation Render 8"></div>
-<div class="portfolio-item elevation" data-caption="Elevation Render 9"><img src="d.jpg" alt="Elevation Render 9"></div>
-<div class="portfolio-item elevation" data-caption="Elevation Render 10"><img src="hm1.jpg" alt="Elevation Render 10"></div>
-<div class="portfolio-item elevation" data-caption="Elevation Render 11"><img src=".jpg" alt="Elevation Render 11"></div>    
-<div class="portfolio-item elevation" data-caption="Elevation Render 12"><img src=" .jpg" alt="Elevation Render 12"></div>    
-<div class="portfolio-item elevation" data-caption="Elevation Render 13"><img src=".jpg" alt="Elevation Render 13"></div>
-    
-    
-<!-- INTERIOR -->
-<div class="portfolio-item interior" data-caption="Interior Render 0"><img src="ind3.png" alt="Interior Render 0"></div>     
-<div class="portfolio-item interior" data-caption="Interior Render 1"><img src="living.jpg" alt="Interior Render 1"></div>    
-<div class="portfolio-item interior" data-caption="Interior Render 2"><img src="int b1dinning.jpg" alt="Interior Render 2"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 3"><img src="int b1 bar.jpg" alt="Interior Render 3"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 4"><img src="LDR2.jpg" alt="Interior Render 4"></div> 
-<div class="portfolio-item interior" data-caption="Interior Render 5"><img src="D11.jpg" alt="Interior Render 5"></div>     
-<div class="portfolio-item interior" data-caption="Interior Render 6"><img src="ktch1.jpg" alt="Interior Render 6"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 7"><img src="ktch2.jpg" alt="Interior Render 7"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 8"><img src="ktch3.jpg" alt="Interior Render 8"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 9"><img src="ktch4.jpg" alt="Interior Render 9"></div>    
-<div class="portfolio-item interior" data-caption="Interior Render 10"><img src="GLV.jpg" alt="Interior Render 10"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 11"><img src="bdr.jpg" alt="Interior Render 11"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 12"><img src="BDM1.jpg" alt="Interior Render 12"></div>
-<div class="portfolio-item interior" data-caption="Interior Render 13"><img src="BD3.jpg" alt="Interior Render 13"></div>    
+    <div class="grid">
 
-    
-<!-- EXTERIOR -->
-<div class="portfolio-item exterior" data-caption="Exterior Render 1"><img src="mith.jpg" alt="Exterior Render 1"></div>
-<div class="portfolio-item exterior" data-caption="Exterior Render 2"><img src="mith1.jpg" alt="Exterior Render 2"></div>
-<div class="portfolio-item exterior" data-caption="Exterior Render 3"><img src="GK5.jpg" alt="Exterior Render 3"></div>
+        <!-- ==================================================
+             ELEVATION PROJECTS
+             ONE CARD = ONE PROJECT
+             Add more images inside data-gallery below.
+        =================================================== -->
+
+        <div class="portfolio-item elevation show"
+             data-project="Elevation Project 01"
+             data-gallery='[
+                {"src":"DA 1.jpg","caption":"Front Elevation"},
+                {"src":"FRS.jpg","caption":"Perspective View"},
+                {"src":"opt ss 2.jpg","caption":"Elevation Detail"},
+                {"src":"opt ss.jpg","caption":"Alternative View"}
+             ]'>
+
+            <div class="project-card">
+                <img src="DA 1.jpg" alt="Elevation Project 01">
+                <span class="image-count">4 Renders</span>
+                <div class="project-overlay">
+                    <h3>Elevation Project 01</h3>
+                    <p>VIEW PROJECT GALLERY →</p>
+                </div>
+            </div>
+        </div>
 
 
-    
-<!-- WALKTHROUGH -->
-<div class="portfolio-item walkthrough" data-caption="Walkthrough Render 1"><video src="vi.mp4" autoplay loop muted playsinline style="width:100%; border-radius:10px;"></video>
-<div class="portfolio-item walkthrough" data-caption="Walkthrough Render 2"><video src="RS 2.mp4" autoplay loop muted playsinline style="width:100%; border-radius:10px;"></video> 
-<div class="portfolio-item walkthrough" data-caption="Walkthrough Render 3"><video src="INE.mp4" autoplay loop muted playsinline style="width:100%; border-radius:10px;"></video>
-<div class="portfolio-item walkthrough" data-caption="Walkthrough Render 4"><video src="living wth 1.mp4" autoplay loop muted playsinline style="width:100%; border-radius:10px;"></video>
-    
-<!-- 2D & 3D SECTIONAL -->
-<div class="portfolio-item sectional" data-caption="2D & 3D Sectional 1"><img src="FLOORP0.jpg" alt="2D & 3D Sectional 1"></div>
-<div class="portfolio-item sectional" data-caption="2D & 3D Sectional 2"><img src="FLOORP1.jpg" alt="2D & 3D Sectional 2"></div>
-<div class="portfolio-item sectional" data-caption="2D & 3D Sectional 3"><img src="FLOORP2.jpg" alt="2D & 3D Sectional 3"></div>
-<div class="portfolio-item sectional" data-caption="2D & 3D Sectional 4"><img src="FLOORP3.jpg" alt="2D & 3D Sectional 4"></div>
-</div>
+        <div class="portfolio-item elevation show"
+             data-project="Elevation Project 02"
+             data-gallery='[
+                {"src":"SS.jpg","caption":"Main Elevation"},
+                {"src":"Ade1.jpg","caption":"Side Elevation"},
+                {"src":"Ade2.jpg","caption":"Rear / Perspective View"}
+             ]'>
+
+            <div class="project-card">
+                <img src="SS.jpg" alt="Elevation Project 02">
+                <span class="image-count">3 Renders</span>
+                <div class="project-overlay">
+                    <h3>Elevation Project 02</h3>
+                    <p>VIEW PROJECT GALLERY →</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="portfolio-item elevation show"
+             data-project="Elevation Project 03"
+             data-gallery='[
+                {"src":"Image 03.png","caption":"Main Elevation"},
+                {"src":"d.jpg","caption":"Perspective View"},
+                {"src":"hm1.jpg","caption":"Night View"}
+             ]'>
+
+            <div class="project-card">
+                <img src="Image 03.png" alt="Elevation Project 03">
+                <span class="image-count">3 Renders</span>
+                <div class="project-overlay">
+                    <h3>Elevation Project 03</h3>
+                    <p>VIEW PROJECT GALLERY →</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ==================================================
+             INTERIOR PROJECTS
+        =================================================== -->
+
+        <div class="portfolio-item interior show"
+             data-project="Interior Project 01"
+             data-gallery='[
+                {"src":"ind3.png","caption":"Interior Overview"},
+                {"src":"living.jpg","caption":"Living Room"},
+                {"src":"int b1dinning.jpg","caption":"Dining Area"},
+                {"src":"int b1 bar.jpg","caption":"Bar Area"}
+             ]'>
+
+            <div class="project-card">
+                <img src="ind3.png" alt="Interior Project 01">
+                <span class="image-count">4 Renders</span>
+                <div class="project-overlay">
+                    <h3>Interior Project 01</h3>
+                    <p>VIEW PROJECT GALLERY →</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="portfolio-item interior show"
+             data-project="Interior Project 02"
+             data-gallery='[
+                {"src":"LDR2.jpg","caption":"Living / Lounge Area"},
+                {"src":"D11.jpg","caption":"Dining Area"},
+                {"src":"ktch1.jpg","caption":"Kitchen View"},
+                {"src":"ktch2.jpg","caption":"Kitchen Detail"},
+                {"src":"ktch3.jpg","caption":"Kitchen Perspective"},
+                {"src":"ktch4.jpg","caption":"Kitchen Detail 02"}
+             ]'>
+
+            <div class="project-card">
+                <img src="LDR2.jpg" alt="Interior Project 02">
+                <span class="image-count">6 Renders</span>
+                <div class="project-overlay">
+                    <h3>Interior Project 02</h3>
+                    <p>VIEW PROJECT GALLERY →</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="portfolio-item interior show"
+             data-project="Interior Project 03"
+             data-gallery='[
+                {"src":"GLV.jpg","caption":"Bedroom / Lounge"},
+                {"src":"bdr.jpg","caption":"Bedroom"},
+                {"src":"BDM1.jpg","caption":"Bedroom Detail"},
+                {"src":"BD3.jpg","caption":"Bedroom Perspective"}
+             ]'>
+
+            <div class="project-card">
+                <img src="GLV.jpg" alt="Interior Project 03">
+                <span class="image-count">4 Renders</span>
+                <div class="project-overlay">
+                    <h3>Interior Project 03</h3>
+                    <p>VIEW PROJECT GALLERY →</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ==================================================
+             EXTERIOR PROJECTS
+        =================================================== -->
+
+        <div class="portfolio-item exterior show"
+             data-project="Exterior Project 01"
+             data-gallery='[
+                {"src":"mith.jpg","caption":"Main Exterior"},
+                {"src":"mith1.jpg","caption":"Exterior Perspective"},
+                {"src":"GK5.jpg","caption":"Exterior Detail"}
+             ]'>
+
+            <div class="project-card">
+                <img src="mith.jpg" alt="Exterior Project 01">
+                <span class="image-count">3 Renders</span>
+                <div class="project-overlay">
+                    <h3>Exterior Project 01</h3>
+                    <p>VIEW PROJECT GALLERY →</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ==================================================
+             WALKTHROUGH
+             Videos remain as separate portfolio cards.
+        =================================================== -->
+
+        <div class="portfolio-item walkthrough show"
+             data-project="Walkthrough 01">
+            <div class="project-card">
+                <video src="vi.mp4" autoplay loop muted playsinline
+                       style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
+                </video>
+                <div class="project-overlay">
+                    <h3>Walkthrough 01</h3>
+                    <p>ARCHITECTURAL WALKTHROUGH</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-item walkthrough show"
+             data-project="Walkthrough 02">
+            <div class="project-card">
+                <video src="RS 2.mp4" autoplay loop muted playsinline
+                       style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
+                </video>
+                <div class="project-overlay">
+                    <h3>Walkthrough 02</h3>
+                    <p>ARCHITECTURAL WALKTHROUGH</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-item walkthrough show"
+             data-project="Walkthrough 03">
+            <div class="project-card">
+                <video src="INE.mp4" autoplay loop muted playsinline
+                       style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
+                </video>
+                <div class="project-overlay">
+                    <h3>Walkthrough 03</h3>
+                    <p>ARCHITECTURAL WALKTHROUGH</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-item walkthrough show"
+             data-project="Walkthrough 04">
+            <div class="project-card">
+                <video src="living wth 1.mp4" autoplay loop muted playsinline
+                       style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
+                </video>
+                <div class="project-overlay">
+                    <h3>Walkthrough 04</h3>
+                    <p>INTERIOR WALKTHROUGH</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ==================================================
+             2D & 3D SECTIONAL
+        =================================================== -->
+
+        <div class="portfolio-item sectional show"
+             data-project="2D & 3D Sectional Project"
+             data-gallery='[
+                {"src":"FLOORP0.jpg","caption":"Floor Plan / Sectional 01"},
+                {"src":"FLOORP1.jpg","caption":"Floor Plan / Sectional 02"},
+                {"src":"FLOORP2.jpg","caption":"Floor Plan / Sectional 03"},
+                {"src":"FLOORP3.jpg","caption":"Floor Plan / Sectional 04"}
+             ]'>
+
+            <div class="project-card">
+                <img src="FLOORP0.jpg" alt="2D and 3D Sectional Project">
+                <span class="image-count">4 Drawings</span>
+                <div class="project-overlay">
+                    <h3>2D & 3D Sectional Project</h3>
+                    <p>VIEW PROJECT GALLERY →</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </section>
-    
-<!-- LIGHTBOX -->
-<div id="lightbox" class="lightbox">
-  <span class="close" onclick="closeLightbox()">×</span>
-  <span class="prev" onclick="changeSlide(-1)">❮</span>
-  <span class="next" onclick="changeSlide(1)">❯</span>
-  <img id="lightbox-img" src="" alt="">
-  <div id="lightbox-caption"></div>
+
+
+<!-- ======================================================
+     PROJECT LIGHTBOX
+====================================================== -->
+
+<div id="lightbox" class="lightbox" aria-hidden="true">
+
+    <div class="lightbox-content">
+
+        <div class="lightbox-header">
+            <div id="lightbox-title" class="lightbox-title"></div>
+            <div id="lightbox-counter" class="lightbox-counter"></div>
+        </div>
+
+        <div class="lightbox-main">
+
+            <span class="prev" id="lightbox-prev" aria-label="Previous image">❮</span>
+
+            <img id="lightbox-img" src="" alt="">
+
+            <span class="next" id="lightbox-next" aria-label="Next image">❯</span>
+
+        </div>
+
+        <div id="lightbox-caption"></div>
+
+        <div id="thumbnail-strip" class="thumbnail-strip"></div>
+
+    </div>
+
+    <span class="close" id="lightbox-close" aria-label="Close gallery">×</span>
+
 </div>
+
 
 <section class="section about" id="about">
-<h2>The Philosophy</h2>
-<p><strong>Great design doesn't stop at the threshold.</strong> I specialize in creating a seamless dialogue between a structure’s environment and its inner sanctuary. By blending architectural rigor with interior artistry, I provide 3D visualizations that aren't just "images"—they are blueprints for reality.</p>
 
-<h2>What We Do</h2>
-<p>We help architects, developers, and private clients eliminate the "what ifs." Through high-fidelity rendering and immersive 3D modeling, we bring every texture, shadow, and structural detail to light.</p>
+    <h2>The Philosophy</h2>
 
-<p><strong>The Inside:</strong> Focused on ergonomics, mood, and the tactile details that make a space feel like home (or work).</p>
-<p><strong>The Outside:</strong> Focused on presence, landscape integration, and the bold architectural statements that define a skyline.</p>
+    <p>
+        <strong>Great design doesn't stop at the threshold.</strong>
+        I specialize in creating a seamless dialogue between a structure’s
+        environment and its inner sanctuary. By blending architectural rigor
+        with interior artistry, I provide 3D visualizations that aren't just
+        "images"—they are blueprints for reality.
+    </p>
 
-<h2>The Goal</h2>
-<p>To turn your conceptual sketches into a tangible vision that secures investors, wins over clients, or simply gives you the confidence to start building.</p>
+    <h2>What We Do</h2>
+
+    <p>
+        We help architects, developers, and private clients eliminate the
+        "what ifs." Through high-fidelity rendering and immersive 3D modeling,
+        we bring every texture, shadow, and structural detail to light.
+    </p>
+
+    <p>
+        <strong>The Inside:</strong>
+        Focused on ergonomics, mood, and the tactile details that make a
+        space feel like home (or work).
+    </p>
+
+    <p>
+        <strong>The Outside:</strong>
+        Focused on presence, landscape integration, and the bold architectural
+        statements that define a skyline.
+    </p>
+
+    <h2>The Goal</h2>
+
+    <p>
+        To turn your conceptual sketches into a tangible vision that secures
+        investors, wins over clients, or simply gives you the confidence to
+        start building.
+    </p>
+
 </section>
+
 
 <section class="section" id="contact">
-<h2>Connect With Me</h2>
-<p style="text-align:center;">
-<a href="https://instagram.com/inext_designs" class="button">Instagram</a>
-<a href="https://wa.me/918459441620" class="button">WhatsApp</a>
-</p>
+
+    <h2>Connect With Me</h2>
+
+    <p style="text-align:center;">
+        <a href="https://instagram.com/inext_designs" class="button">Instagram</a>
+        <a href="https://wa.me/918459441620" class="button">WhatsApp</a>
+    </p>
+
 </section>
 
+
 <footer>
-© 2026 INEXT | Designed by Sandesh Gandhgule
+    © 2026 INEXT | Designed by Sandesh Gandhgule
 </footer>
 
 <a href="https://wa.me/918459441620" class="whatsapp">💬</a>
 
+
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-  const items = document.getElementsByClassName("portfolio-item");
-  const btns = document.querySelectorAll(".filter-btn");
-  let visibleItems = [];
+    /* =========================
+       FILTER SYSTEM
+    ========================= */
 
-  function filterSelection(category) {
-    for (let i = 0; i < items.length; i++) {
-      items[i].classList.remove("show");
-      if (category === "all" || items[i].classList.contains(category)) {
-        items[i].classList.add("show");
-      }
+    const items = document.querySelectorAll(".portfolio-item");
+    const buttons = document.querySelectorAll(".filter-btn");
+
+    function filterSelection(category) {
+
+        items.forEach(item => {
+
+            if (category === "all" || item.classList.contains(category)) {
+                item.classList.add("show");
+            } else {
+                item.classList.remove("show");
+            }
+
+        });
+
     }
-    updateVisibleItems();
-  }
 
-  function updateVisibleItems() {
-    visibleItems = [];
-    for (let i = 0; i < items.length; i++) {
-      if (items[i].classList.contains("show")) visibleItems.push(items[i]);
+    buttons.forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            buttons.forEach(btn => btn.classList.remove("active"));
+
+            this.classList.add("active");
+
+            filterSelection(this.getAttribute("data-filter"));
+
+        });
+
+    });
+
+    filterSelection("all");
+
+
+    /* =========================
+       PROJECT GALLERY
+    ========================= */
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxTitle = document.getElementById("lightbox-title");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const lightboxCounter = document.getElementById("lightbox-counter");
+    const thumbnailStrip = document.getElementById("thumbnail-strip");
+
+    const closeButton = document.getElementById("lightbox-close");
+    const prevButton = document.getElementById("lightbox-prev");
+    const nextButton = document.getElementById("lightbox-next");
+
+    let currentGallery = [];
+    let currentIndex = 0;
+
+
+    /* =========================
+       OPEN GALLERY
+    ========================= */
+
+    function openGallery(item) {
+
+        const galleryData = item.getAttribute("data-gallery");
+
+        if (!galleryData) return;
+
+        try {
+
+            currentGallery = JSON.parse(galleryData);
+
+        } catch (error) {
+
+            console.error("Gallery data error:", error);
+            return;
+
+        }
+
+        if (!currentGallery.length) return;
+
+        currentIndex = 0;
+
+        lightboxTitle.textContent =
+            item.getAttribute("data-project") || "Project Gallery";
+
+        createThumbnails();
+
+        updateGallery();
+
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.classList.add("lightbox-open");
+
     }
-  }
 
-  // Button click
-  btns.forEach(btn => {
-    btn.addEventListener("click", function() {
-      btns.forEach(b => b.classList.remove("active"));
-      this.classList.add("active");
-      filterSelection(this.getAttribute("data-filter"));
+
+    /* =========================
+       UPDATE MAIN IMAGE
+    ========================= */
+
+    function updateGallery() {
+
+        const image = currentGallery[currentIndex];
+
+        lightboxImg.style.opacity = "0";
+
+        setTimeout(() => {
+
+            lightboxImg.src = image.src;
+            lightboxImg.alt = image.caption || lightboxTitle.textContent;
+
+            lightboxCaption.textContent = image.caption || "";
+
+            lightboxCounter.textContent =
+                `${String(currentIndex + 1).padStart(2, "0")} / ${String(currentGallery.length).padStart(2, "0")}`;
+
+            lightboxImg.onload = function () {
+                lightboxImg.style.opacity = "1";
+            };
+
+            updateActiveThumbnail();
+
+        }, 100);
+
+    }
+
+
+    /* =========================
+       THUMBNAILS
+    ========================= */
+
+    function createThumbnails() {
+
+        thumbnailStrip.innerHTML = "";
+
+        currentGallery.forEach((image, index) => {
+
+            const thumbnail = document.createElement("img");
+
+            thumbnail.src = image.src;
+            thumbnail.alt = image.caption || `Image ${index + 1}`;
+            thumbnail.className = "thumbnail";
+
+            thumbnail.addEventListener("click", function () {
+
+                currentIndex = index;
+                updateGallery();
+
+            });
+
+            thumbnailStrip.appendChild(thumbnail);
+
+        });
+
+    }
+
+
+    function updateActiveThumbnail() {
+
+        const thumbnails =
+            thumbnailStrip.querySelectorAll(".thumbnail");
+
+        thumbnails.forEach((thumbnail, index) => {
+
+            thumbnail.classList.toggle(
+                "active",
+                index === currentIndex
+            );
+
+        });
+
+        const activeThumbnail = thumbnails[currentIndex];
+
+        if (activeThumbnail) {
+
+            activeThumbnail.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "center"
+            });
+
+        }
+
+    }
+
+
+    /* =========================
+       NEXT / PREVIOUS
+    ========================= */
+
+    function nextImage() {
+
+        if (!currentGallery.length) return;
+
+        currentIndex++;
+
+        if (currentIndex >= currentGallery.length) {
+            currentIndex = 0;
+        }
+
+        updateGallery();
+
+    }
+
+
+    function previousImage() {
+
+        if (!currentGallery.length) return;
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex = currentGallery.length - 1;
+        }
+
+        updateGallery();
+
+    }
+
+
+    /* =========================
+       CLOSE
+    ========================= */
+
+    function closeGallery() {
+
+        lightbox.classList.remove("active");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("lightbox-open");
+
+        lightboxImg.src = "";
+
+        currentGallery = [];
+        currentIndex = 0;
+
+    }
+
+
+    /* =========================
+       CLICK PROJECT CARDS
+    ========================= */
+
+    document.querySelectorAll(".portfolio-item[data-gallery]")
+        .forEach(item => {
+
+            const card = item.querySelector(".project-card");
+
+            card.addEventListener("click", function () {
+
+                openGallery(item);
+
+            });
+
+        });
+
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    nextButton.addEventListener("click", nextImage);
+
+    prevButton.addEventListener("click", previousImage);
+
+    closeButton.addEventListener("click", closeGallery);
+
+
+    /* =========================
+       CLICK BACKGROUND TO CLOSE
+    ========================= */
+
+    lightbox.addEventListener("click", function (event) {
+
+        if (event.target === lightbox) {
+            closeGallery();
+        }
+
     });
-  });
 
-  filterSelection("all"); // show all by default
 
-  // LIGHTBOX
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const lightboxCaption = document.getElementById("lightbox-caption");
-  let currentIndex = 0;
+    /* =========================
+       KEYBOARD CONTROLS
+    ========================= */
 
-  function openLightbox(index){
-    lightbox.style.display="flex";
-    currentIndex = index;
-    updateLightboxImage();
-  }
-  function closeLightbox(){ lightbox.style.display="none"; }
-  function changeSlide(n){
-    currentIndex += n;
-    if(currentIndex<0) currentIndex = visibleItems.length-1;
-    if(currentIndex>=visibleItems.length) currentIndex=0;
-    updateLightboxImage();
-  }
-  function updateLightboxImage(){
-    const item = visibleItems[currentIndex];
-    lightboxImg.src = item.getElementsByTagName("img")[0].src;
-    lightboxCaption.innerText = item.getAttribute("data-caption") || "";
-  }
+    document.addEventListener("keydown", function (event) {
 
-  document.querySelectorAll(".grid img").forEach((img) => {
-    img.addEventListener("click", function(){
-      updateVisibleItems();
-      currentIndex = visibleItems.indexOf(img.parentElement);
-      openLightbox(currentIndex);
+        if (!lightbox.classList.contains("active")) return;
+
+        if (event.key === "Escape") {
+            closeGallery();
+        }
+
+        if (event.key === "ArrowRight") {
+            nextImage();
+        }
+
+        if (event.key === "ArrowLeft") {
+            previousImage();
+        }
+
     });
-  });
 
-  window.openLightbox = openLightbox;
-  window.closeLightbox = closeLightbox;
-  window.changeSlide = changeSlide;
+
+    /* =========================
+       MOBILE SWIPE
+    ========================= */
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener("touchstart", function (event) {
+
+        touchStartX = event.changedTouches[0].screenX;
+
+    }, { passive: true });
+
+
+    lightbox.addEventListener("touchend", function (event) {
+
+        touchEndX = event.changedTouches[0].screenX;
+
+        const swipeDistance = touchEndX - touchStartX;
+
+        if (Math.abs(swipeDistance) < 50) return;
+
+        if (swipeDistance < 0) {
+            nextImage();
+        } else {
+            previousImage();
+        }
+
+    }, { passive: true });
 
 });
 </script>
