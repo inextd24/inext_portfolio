@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INEXT | 3D Interior & Exterior Visualization</title>
+<meta name="description" content="INEXT — Architectural visualization, interior and exterior 3D rendering, elevations and cinematic walkthroughs.">
+<title>INEXT | Architectural Visualization Studio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
 /* =========================
@@ -509,277 +510,77 @@ footer {
         height: 48px;
     }
 }
+
+/* ===== INEXT PREMIUM UPGRADE ===== */
+:root{--gold:#d4af37;--bg:#0b0b0b;--surface:#151515;--muted:#a4a19a;--line:rgba(255,255,255,.12)}
+html{scroll-behavior:smooth} body{background:var(--bg)}
+header{transition:.35s ease;background:linear-gradient(to bottom,rgba(0,0,0,.8),transparent)}
+header.scrolled{background:rgba(10,10,10,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding-top:14px;padding-bottom:14px}
+.hero-premium{min-height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden;background:#050505}
+.hero-premium-media{position:absolute;inset:0}.hero-premium-media img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.72)}
+.hero-premium-media:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.94),rgba(0,0,0,.22) 55%,rgba(0,0,0,.35))}
+.hero-premium-content{position:relative;z-index:2;width:80%;max-width:1250px;margin:auto;padding:0 0 9vh}
+.eyebrow-premium{color:var(--gold);font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
+.hero-premium h1{font-family:'Playfair Display',serif;font-size:clamp(50px,8vw,115px);font-weight:500;line-height:.9;letter-spacing:-2px;margin:0;max-width:1000px}
+.hero-premium h1 span{color:var(--gold)}
+.hero-premium p{max-width:620px;color:#d0cec8;font-size:16px;margin:25px 0}
+.hero-premium-actions{display:flex;gap:10px;flex-wrap:wrap}.premium-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border:1px solid var(--line);text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:10px;transition:.3s}.premium-btn.primary{background:var(--gold);color:#080808;border-color:var(--gold)}.premium-btn:hover{transform:translateY(-2px);border-color:var(--gold)}
+.premium-section{padding:110px 10%;background:var(--bg)}.premium-section.dark{background:#101010}.premium-head{display:flex;justify-content:space-between;gap:35px;align-items:end;margin-bottom:45px}.premium-number{color:var(--gold);font-size:10px;letter-spacing:2px;margin-bottom:10px}.premium-head h2{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,68px);font-weight:500;line-height:1;margin:0}.premium-intro{max-width:500px;color:var(--muted);font-size:14px}
+.featured-premium{position:relative;overflow:hidden;cursor:pointer}.featured-premium img{width:100%;height:min(72vh,760px);object-fit:cover;display:block;transition:.8s}.featured-premium:hover img{transform:scale(1.025);filter:brightness(.75)}.featured-premium-overlay{position:absolute;inset:auto 0 0;padding:90px 5% 40px;background:linear-gradient(transparent,rgba(0,0,0,.92))}.featured-premium-overlay h3{font-family:'Playfair Display',serif;font-size:clamp(35px,5vw,62px);font-weight:500;margin:6px 0}.featured-premium-overlay p{margin:0;color:#ccc;font-size:12px}.premium-label{color:var(--gold);font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.service-grid-premium{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.service-premium{padding:35px 28px;min-height:260px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.3s}.service-premium:hover{background:var(--surface)}.service-premium .num{color:var(--gold);font-size:10px;letter-spacing:2px}.service-premium h3{font-family:'Playfair Display',serif;font-size:25px;font-weight:500;margin:55px 0 12px}.service-premium p{color:var(--muted);font-size:13px;margin:0}
+.process-premium{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}.process-premium>div{padding:28px 18px;border-right:1px solid var(--line)}.process-premium span{color:var(--gold);font-size:11px}.process-premium h3{font-family:'Playfair Display',serif;font-size:23px;font-weight:500;margin:35px 0 8px}.process-premium p{color:var(--muted);font-size:12px}
+.about-premium{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}.about-premium blockquote{font-family:'Playfair Display',serif;font-size:clamp(35px,4vw,58px);line-height:1.02;margin:0}.about-premium blockquote span{color:var(--gold)}.about-premium p{color:var(--muted);font-size:14px}.audience-premium{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}.audience-premium span{border:1px solid var(--line);padding:9px 12px;color:#bbb;font-size:9px;letter-spacing:1px;text-transform:uppercase}
+.contact-premium{text-align:center;padding:140px 10%;background:radial-gradient(circle at center,rgba(212,175,55,.08),transparent 35%),#0b0b0b}.contact-premium h2{font-family:'Playfair Display',serif;font-size:clamp(45px,7vw,90px);font-weight:500;line-height:.95;margin:0 auto 22px}.contact-premium p{max-width:560px;margin:0 auto 30px;color:var(--muted)}
+@media(max-width:900px){.service-grid-premium{grid-template-columns:repeat(2,1fr)}.process-premium{grid-template-columns:repeat(2,1fr)}.about-premium{grid-template-columns:1fr;gap:40px}}
+@media(max-width:600px){.hero-premium-content{width:90%;padding-bottom:70px}.hero-premium h1{font-size:48px}.premium-section{padding:80px 5%}.premium-head{display:block}.premium-intro{margin-top:18px}.service-grid-premium,.process-premium{grid-template-columns:1fr}.process-premium>div{border-right:0;border-bottom:1px solid var(--line)}}
+
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">INEXT</div>
-    <nav>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<header id="site-header">
+<div class="logo"><a href="#top" style="color:inherit;text-decoration:none">INEXT</a></div>
+<nav><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
 </header>
 
-<section class="hero">
-    <h1>INEXT</h1>
-    <p>DESIGNING INSIDE. DEFINING OUTSIDE.</p>
-    <a href="#portfolio" class="button">View Portfolio</a>
-    <a href="https://wa.me/918459441620" class="button">Contact on WhatsApp</a>
-</section>
+<section class="hero-premium" id="top">
+<div class="hero-premium-media"><img src="DA 1.jpg" alt="INEXT Architectural Visualization"></div>
+<div class="hero-premium-content">
+<div class="eyebrow-premium">Architectural Visualization Studio</div>
+<h1>Designing <span>Inside.</span><br>Defining Outside.</h1>
+<p>High-fidelity 3D architectural visualization for interiors, exteriors, elevations and cinematic walkthroughs — created to make design tangible before it is built.</p>
+<div class="hero-premium-actions"><a href="#work" class="premium-btn primary">Explore Projects</a><a href="#contact" class="premium-btn">Start a Project</a></div>
+</div></section>
 
-<section class="section" id="portfolio">
-    <h2>Selected Works</h2>
+<section class="premium-section" id="work"><div class="premium-head"><div><div class="premium-number">01 / FEATURED</div><h2>Selected Work</h2></div><p class="premium-intro">A curated selection of architectural, interior and exterior visualizations. Click a project to explore its complete render gallery.</p></div>
+<div class="featured-premium" data-gallery='[{"src":"DA 1.jpg","caption":"Front Elevation"},{"src":"FRS.jpg","caption":"Perspective View"},{"src":"opt ss 2.jpg","caption":"Elevation Detail"},{"src":"opt ss.jpg","caption":"Alternative View"}]' data-project="Featured Residential Project"><img src="DA 1.jpg" alt="Featured Residential Project"><div class="featured-premium-overlay"><div class="premium-label">Featured Residential Visualization</div><h3>Modern Residential Architecture</h3><p>Exterior Visualization · Elevation · Architectural Presentation</p></div></div></section>
 
-    <div class="filter-menu">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="elevation">Elevation</button>
-        <button class="filter-btn" data-filter="interior">Interior</button>
-        <button class="filter-btn" data-filter="exterior">Exterior</button>
-        <button class="filter-btn" data-filter="walkthrough">Walkthrough</button>
-        <button class="filter-btn" data-filter="sectional">2D & 3D Sectional</button>
-    </div>
+<section class="premium-section dark"><div class="premium-head"><div><div class="premium-number">02 / PROJECTS</div><h2>Explore the Work</h2></div><p class="premium-intro">Each project opens into its own gallery, keeping multiple renders of the same design together as one complete visual story.</p></div>
+<div class="filter-menu" style="text-align:left;margin-bottom:30px"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="elevation">Elevation</button><button class="filter-btn" data-filter="interior">Interior</button><button class="filter-btn" data-filter="exterior">Exterior</button><button class="filter-btn" data-filter="walkthrough">Walkthrough</button><button class="filter-btn" data-filter="sectional">2D & 3D</button></div>
+<div class="grid">
+<div class="portfolio-item elevation show" data-caption="Residential Elevation 01" data-gallery='[{"src":"DA 1.jpg","caption":"Front Elevation"},{"src":"FRS.jpg","caption":"Perspective View"},{"src":"opt ss 2.jpg","caption":"Elevation Detail"},{"src":"opt ss.jpg","caption":"Alternative View"}]'><div class="project-card"><img src="DA 1.jpg" alt="Residential Elevation 01"><span class="image-count">04 Visuals</span><div class="project-overlay"><div class="premium-label">Elevation</div><h3>Residential Elevation 01</h3><p>Open project gallery →</p></div></div></div>
+<div class="portfolio-item elevation show" data-caption="Residential Elevation 02" data-gallery='[{"src":"SS.jpg","caption":"Main Elevation"},{"src":"Ade1.jpg","caption":"Side Elevation"},{"src":"Ade2.jpg","caption":"Perspective View"}]'><div class="project-card"><img src="SS.jpg" alt="Residential Elevation 02"><span class="image-count">03 Visuals</span><div class="project-overlay"><div class="premium-label">Elevation</div><h3>Residential Elevation 02</h3><p>Open project gallery →</p></div></div></div>
+<div class="portfolio-item elevation show" data-caption="Residential Elevation 03" data-gallery='[{"src":"Image 03.png","caption":"Main Elevation"},{"src":"d.jpg","caption":"Perspective View"},{"src":"hm1.jpg","caption":"Night View"}]'><div class="project-card"><img src="Image 03.png" alt="Residential Elevation 03"><span class="image-count">03 Visuals</span><div class="project-overlay"><div class="premium-label">Elevation</div><h3>Residential Elevation 03</h3><p>Open project gallery →</p></div></div></div>
+<div class="portfolio-item interior show" data-caption="Luxury Interior 01" data-gallery='[{"src":"ind3.png","caption":"Interior Overview"},{"src":"living.jpg","caption":"Living Room"},{"src":"int b1dinning.jpg","caption":"Dining Area"},{"src":"int b1 bar.jpg","caption":"Bar Area"}]'><div class="project-card"><img src="ind3.png" alt="Luxury Interior 01"><span class="image-count">04 Visuals</span><div class="project-overlay"><div class="premium-label">Interior</div><h3>Luxury Interior 01</h3><p>Open project gallery →</p></div></div></div>
+<div class="portfolio-item interior show" data-caption="Luxury Interior 02" data-gallery='[{"src":"LDR2.jpg","caption":"Living / Lounge Area"},{"src":"D11.jpg","caption":"Dining Area"},{"src":"ktch1.jpg","caption":"Kitchen View"},{"src":"ktch2.jpg","caption":"Kitchen Detail"},{"src":"ktch3.jpg","caption":"Kitchen Perspective"},{"src":"ktch4.jpg","caption":"Kitchen Detail 02"}]'><div class="project-card"><img src="LDR2.jpg" alt="Luxury Interior 02"><span class="image-count">06 Visuals</span><div class="project-overlay"><div class="premium-label">Interior</div><h3>Luxury Interior 02</h3><p>Open project gallery →</p></div></div></div>
+<div class="portfolio-item interior show" data-caption="Luxury Interior 03" data-gallery='[{"src":"GLV.jpg","caption":"Bedroom / Lounge"},{"src":"bdr.jpg","caption":"Bedroom"},{"src":"BDM1.jpg","caption":"Bedroom Detail"},{"src":"BD3.jpg","caption":"Bedroom Perspective"}]'><div class="project-card"><img src="GLV.jpg" alt="Luxury Interior 03"><span class="image-count">04 Visuals</span><div class="project-overlay"><div class="premium-label">Interior</div><h3>Luxury Interior 03</h3><p>Open project gallery →</p></div></div></div>
+<div class="portfolio-item exterior show" data-caption="Exterior Visualization 01" data-gallery='[{"src":"mith.jpg","caption":"Main Exterior"},{"src":"mith1.jpg","caption":"Exterior Perspective"},{"src":"GK5.jpg","caption":"Exterior Detail"}]'><div class="project-card"><img src="mith.jpg" alt="Exterior Visualization 01"><span class="image-count">03 Visuals</span><div class="project-overlay"><div class="premium-label">Exterior</div><h3>Exterior Visualization 01</h3><p>Open project gallery →</p></div></div></div>
+<div class="portfolio-item sectional show" data-caption="2D & 3D Sectional" data-gallery='[{"src":"FLOORP0.jpg","caption":"Floor Plan / Sectional 01"},{"src":"FLOORP1.jpg","caption":"Floor Plan / Sectional 02"},{"src":"FLOORP2.jpg","caption":"Floor Plan / Sectional 03"},{"src":"FLOORP3.jpg","caption":"Floor Plan / Sectional 04"}]'><div class="project-card"><img src="FLOORP0.jpg" alt="2D and 3D Sectional"><span class="image-count">04 Drawings</span><div class="project-overlay"><div class="premium-label">2D & 3D</div><h3>Sectional Presentation</h3><p>Open project gallery →</p></div></div></div>
+<div class="portfolio-item walkthrough show" data-caption="Architectural Walkthrough 01"><div class="project-card"><video src="vi.mp4" autoplay loop muted playsinline style="width:100%;height:100%;min-height:250px;object-fit:cover"></video><div class="project-overlay"><div class="premium-label">Walkthrough</div><h3>Architectural Walkthrough 01</h3><p>Presentation Film</p></div></div></div>
+<div class="portfolio-item walkthrough show" data-caption="Architectural Walkthrough 02"><div class="project-card"><video src="RS 2.mp4" autoplay loop muted playsinline style="width:100%;height:100%;min-height:250px;object-fit:cover"></video><div class="project-overlay"><div class="premium-label">Walkthrough</div><h3>Architectural Walkthrough 02</h3><p>Presentation Film</p></div></div></div>
+<div class="portfolio-item walkthrough show" data-caption="Interior Walkthrough"><div class="project-card"><video src="living wth 1.mp4" autoplay loop muted playsinline style="width:100%;height:100%;min-height:250px;object-fit:cover"></video><div class="project-overlay"><div class="premium-label">Walkthrough</div><h3>Interior Walkthrough</h3><p>Cinematic Presentation</p></div></div></div>
+</div></section>
 
-    <div class="grid">
+<section class="premium-section" id="services"><div class="premium-head"><div><div class="premium-number">03 / CAPABILITIES</div><h2>What We Do</h2></div><p class="premium-intro">From the first drawing to the final cinematic frame, INEXT turns architectural ideas into visual experiences.</p></div><div class="service-grid-premium"><div class="service-premium"><span class="num">01</span><h3>Exterior Visualization</h3><p>Photorealistic elevations, façades, landscapes and architectural environments.</p></div><div class="service-premium"><span class="num">02</span><h3>Interior Visualization</h3><p>Material-rich interiors with carefully developed lighting, atmosphere and spatial detail.</p></div><div class="service-premium"><span class="num">03</span><h3>3D Architectural Design</h3><p>3D modeling and visualization that communicate design intent before construction.</p></div><div class="service-premium"><span class="num">04</span><h3>Walkthroughs</h3><p>Cinematic architectural walkthroughs designed for presentations, marketing and social media.</p></div></div></section>
 
-        <!-- ==================================================
-             ELEVATION PROJECTS
-             ONE CARD = ONE PROJECT
-             Add more images inside data-gallery below.
-        =================================================== -->
+<section class="reel"><video src="vi.mp4" autoplay muted loop playsinline></video><div class="reel-overlay"><div class="eyebrow-premium">Visualize Before You Build</div><h2>Architecture, experienced before reality.</h2><a href="#contact" class="premium-btn primary">Create Your Project</a></div></section>
 
-        <div class="portfolio-item elevation show"
-             data-project="Elevation Project 01"
-             data-gallery='[
-                {"src":"DA 1.jpg","caption":"Front Elevation"},
-                {"src":"FRS.jpg","caption":"Perspective View"},
-                {"src":"opt ss 2.jpg","caption":"Elevation Detail"},
-                {"src":"opt ss.jpg","caption":"Alternative View"}
-             ]'>
+<section class="premium-section dark"><div class="premium-head"><div><div class="premium-number">04 / PROCESS</div><h2>How We Work</h2></div><p class="premium-intro">A clear workflow keeps the design intent intact while transforming it into a polished visual presentation.</p></div><div class="process-premium"><div><span>01</span><h3>Discover</h3><p>Drawings, references, requirements and visual direction.</p></div><div><span>02</span><h3>Model</h3><p>Develop the architectural form and spatial framework.</p></div><div><span>03</span><h3>Visualize</h3><p>Materials, lighting, environment and camera composition.</p></div><div><span>04</span><h3>Refine</h3><p>Review, feedback and controlled visual refinements.</p></div><div><span>05</span><h3>Deliver</h3><p>High-resolution stills, animations and presentation assets.</p></div></div></section>
 
-            <div class="project-card">
-                <img src="DA 1.jpg" alt="Elevation Project 01">
-                <span class="image-count">4 Renders</span>
-                <div class="project-overlay">
-                    <h3>Elevation Project 01</h3>
-                    <p>VIEW PROJECT GALLERY →</p>
-                </div>
-            </div>
-        </div>
+<section class="premium-section" id="about"><div class="premium-number">05 / ABOUT INEXT</div><div class="about-premium"><blockquote>Great design doesn't stop at the <span>threshold.</span></blockquote><div><p>INEXT creates high-fidelity architectural visualizations that connect interior experience with exterior identity. The goal is simple: transform concepts, drawings and designs into visuals that can be experienced before they are built.</p><p>From architectural elevations and exterior environments to detailed interiors and cinematic walkthroughs, every visual is developed with attention to proportion, materials, lighting and atmosphere.</p><div class="audience-premium"><span>Architects</span><span>Interior Designers</span><span>Developers</span><span>Builders</span><span>Private Clients</span></div></div></div></section>
 
-
-        <div class="portfolio-item elevation show"
-             data-project="Elevation Project 02"
-             data-gallery='[
-                {"src":"SS.jpg","caption":"Main Elevation"},
-                {"src":"Ade1.jpg","caption":"Side Elevation"},
-                {"src":"Ade2.jpg","caption":"Rear / Perspective View"}
-             ]'>
-
-            <div class="project-card">
-                <img src="SS.jpg" alt="Elevation Project 02">
-                <span class="image-count">3 Renders</span>
-                <div class="project-overlay">
-                    <h3>Elevation Project 02</h3>
-                    <p>VIEW PROJECT GALLERY →</p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="portfolio-item elevation show"
-             data-project="Elevation Project 03"
-             data-gallery='[
-                {"src":"Image 03.png","caption":"Main Elevation"},
-                {"src":"d.jpg","caption":"Perspective View"},
-                {"src":"hm1.jpg","caption":"Night View"}
-             ]'>
-
-            <div class="project-card">
-                <img src="Image 03.png" alt="Elevation Project 03">
-                <span class="image-count">3 Renders</span>
-                <div class="project-overlay">
-                    <h3>Elevation Project 03</h3>
-                    <p>VIEW PROJECT GALLERY →</p>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- ==================================================
-             INTERIOR PROJECTS
-        =================================================== -->
-
-        <div class="portfolio-item interior show"
-             data-project="Interior Project 01"
-             data-gallery='[
-                {"src":"ind3.png","caption":"Interior Overview"},
-                {"src":"living.jpg","caption":"Living Room"},
-                {"src":"int b1dinning.jpg","caption":"Dining Area"},
-                {"src":"int b1 bar.jpg","caption":"Bar Area"}
-             ]'>
-
-            <div class="project-card">
-                <img src="ind3.png" alt="Interior Project 01">
-                <span class="image-count">4 Renders</span>
-                <div class="project-overlay">
-                    <h3>Interior Project 01</h3>
-                    <p>VIEW PROJECT GALLERY →</p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="portfolio-item interior show"
-             data-project="Interior Project 02"
-             data-gallery='[
-                {"src":"LDR2.jpg","caption":"Living / Lounge Area"},
-                {"src":"D11.jpg","caption":"Dining Area"},
-                {"src":"ktch1.jpg","caption":"Kitchen View"},
-                {"src":"ktch2.jpg","caption":"Kitchen Detail"},
-                {"src":"ktch3.jpg","caption":"Kitchen Perspective"},
-                {"src":"ktch4.jpg","caption":"Kitchen Detail 02"}
-             ]'>
-
-            <div class="project-card">
-                <img src="LDR2.jpg" alt="Interior Project 02">
-                <span class="image-count">6 Renders</span>
-                <div class="project-overlay">
-                    <h3>Interior Project 02</h3>
-                    <p>VIEW PROJECT GALLERY →</p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="portfolio-item interior show"
-             data-project="Interior Project 03"
-             data-gallery='[
-                {"src":"GLV.jpg","caption":"Bedroom / Lounge"},
-                {"src":"bdr.jpg","caption":"Bedroom"},
-                {"src":"BDM1.jpg","caption":"Bedroom Detail"},
-                {"src":"BD3.jpg","caption":"Bedroom Perspective"}
-             ]'>
-
-            <div class="project-card">
-                <img src="GLV.jpg" alt="Interior Project 03">
-                <span class="image-count">4 Renders</span>
-                <div class="project-overlay">
-                    <h3>Interior Project 03</h3>
-                    <p>VIEW PROJECT GALLERY →</p>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- ==================================================
-             EXTERIOR PROJECTS
-        =================================================== -->
-
-        <div class="portfolio-item exterior show"
-             data-project="Exterior Project 01"
-             data-gallery='[
-                {"src":"mith.jpg","caption":"Main Exterior"},
-                {"src":"mith1.jpg","caption":"Exterior Perspective"},
-                {"src":"GK5.jpg","caption":"Exterior Detail"}
-             ]'>
-
-            <div class="project-card">
-                <img src="mith.jpg" alt="Exterior Project 01">
-                <span class="image-count">3 Renders</span>
-                <div class="project-overlay">
-                    <h3>Exterior Project 01</h3>
-                    <p>VIEW PROJECT GALLERY →</p>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- ==================================================
-             WALKTHROUGH
-             Videos remain as separate portfolio cards.
-        =================================================== -->
-
-        <div class="portfolio-item walkthrough show"
-             data-project="Walkthrough 01">
-            <div class="project-card">
-                <video src="vi.mp4" autoplay loop muted playsinline
-                       style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
-                </video>
-                <div class="project-overlay">
-                    <h3>Walkthrough 01</h3>
-                    <p>ARCHITECTURAL WALKTHROUGH</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="portfolio-item walkthrough show"
-             data-project="Walkthrough 02">
-            <div class="project-card">
-                <video src="RS 2.mp4" autoplay loop muted playsinline
-                       style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
-                </video>
-                <div class="project-overlay">
-                    <h3>Walkthrough 02</h3>
-                    <p>ARCHITECTURAL WALKTHROUGH</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="portfolio-item walkthrough show"
-             data-project="Walkthrough 03">
-            <div class="project-card">
-                <video src="INE.mp4" autoplay loop muted playsinline
-                       style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
-                </video>
-                <div class="project-overlay">
-                    <h3>Walkthrough 03</h3>
-                    <p>ARCHITECTURAL WALKTHROUGH</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="portfolio-item walkthrough show"
-             data-project="Walkthrough 04">
-            <div class="project-card">
-                <video src="living wth 1.mp4" autoplay loop muted playsinline
-                       style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
-                </video>
-                <div class="project-overlay">
-                    <h3>Walkthrough 04</h3>
-                    <p>INTERIOR WALKTHROUGH</p>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- ==================================================
-             2D & 3D SECTIONAL
-        =================================================== -->
-
-        <div class="portfolio-item sectional show"
-             data-project="2D & 3D Sectional Project"
-             data-gallery='[
-                {"src":"FLOORP0.jpg","caption":"Floor Plan / Sectional 01"},
-                {"src":"FLOORP1.jpg","caption":"Floor Plan / Sectional 02"},
-                {"src":"FLOORP2.jpg","caption":"Floor Plan / Sectional 03"},
-                {"src":"FLOORP3.jpg","caption":"Floor Plan / Sectional 04"}
-             ]'>
-
-            <div class="project-card">
-                <img src="FLOORP0.jpg" alt="2D and 3D Sectional Project">
-                <span class="image-count">4 Drawings</span>
-                <div class="project-overlay">
-                    <h3>2D & 3D Sectional Project</h3>
-                    <p>VIEW PROJECT GALLERY →</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
+<section class="contact-premium" id="contact"><div class="premium-number">06 / START A PROJECT</div><h2>Have a project in mind?</h2><p>Let's turn your design into something people can see, feel and understand before it is built.</p><a href="https://wa.me/918459441620" class="premium-btn primary">WhatsApp</a><a href="https://instagram.com/inext_designs" class="premium-btn" style="margin-left:8px">Instagram</a><a href="mailto:your@email.com" class="premium-btn" style="margin-left:8px">Email</a></section>
 
 
 <!-- ======================================================
@@ -816,405 +617,31 @@ footer {
 </div>
 
 
-<section class="section about" id="about">
-
-    <h2>The Philosophy</h2>
-
-    <p>
-        <strong>Great design doesn't stop at the threshold.</strong>
-        I specialize in creating a seamless dialogue between a structure’s
-        environment and its inner sanctuary. By blending architectural rigor
-        with interior artistry, I provide 3D visualizations that aren't just
-        "images"—they are blueprints for reality.
-    </p>
-
-    <h2>What We Do</h2>
-
-    <p>
-        We help architects, developers, and private clients eliminate the
-        "what ifs." Through high-fidelity rendering and immersive 3D modeling,
-        we bring every texture, shadow, and structural detail to light.
-    </p>
-
-    <p>
-        <strong>The Inside:</strong>
-        Focused on ergonomics, mood, and the tactile details that make a
-        space feel like home (or work).
-    </p>
-
-    <p>
-        <strong>The Outside:</strong>
-        Focused on presence, landscape integration, and the bold architectural
-        statements that define a skyline.
-    </p>
-
-    <h2>The Goal</h2>
-
-    <p>
-        To turn your conceptual sketches into a tangible vision that secures
-        investors, wins over clients, or simply gives you the confidence to
-        start building.
-    </p>
-
-</section>
-
-
-<section class="section" id="contact">
-
-    <h2>Connect With Me</h2>
-
-    <p style="text-align:center;">
-        <a href="https://instagram.com/inext_designs" class="button">Instagram</a>
-        <a href="https://wa.me/918459441620" class="button">WhatsApp</a>
-    </p>
-
-</section>
-
-
 <footer>
-    © 2026 INEXT | Designed by Sandesh Gandhgule
+    © 2026 <strong>INEXT</strong> — Designing Inside. Defining Outside.
 </footer>
 
 <a href="https://wa.me/918459441620" class="whatsapp">💬</a>
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    /* =========================
-       FILTER SYSTEM
-    ========================= */
-
-    const items = document.querySelectorAll(".portfolio-item");
-    const buttons = document.querySelectorAll(".filter-btn");
-
-    function filterSelection(category) {
-
-        items.forEach(item => {
-
-            if (category === "all" || item.classList.contains(category)) {
-                item.classList.add("show");
-            } else {
-                item.classList.remove("show");
-            }
-
-        });
-
-    }
-
-    buttons.forEach(button => {
-
-        button.addEventListener("click", function () {
-
-            buttons.forEach(btn => btn.classList.remove("active"));
-
-            this.classList.add("active");
-
-            filterSelection(this.getAttribute("data-filter"));
-
-        });
-
-    });
-
-    filterSelection("all");
-
-
-    /* =========================
-       PROJECT GALLERY
-    ========================= */
-
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxTitle = document.getElementById("lightbox-title");
-    const lightboxCaption = document.getElementById("lightbox-caption");
-    const lightboxCounter = document.getElementById("lightbox-counter");
-    const thumbnailStrip = document.getElementById("thumbnail-strip");
-
-    const closeButton = document.getElementById("lightbox-close");
-    const prevButton = document.getElementById("lightbox-prev");
-    const nextButton = document.getElementById("lightbox-next");
-
-    let currentGallery = [];
-    let currentIndex = 0;
-
-
-    /* =========================
-       OPEN GALLERY
-    ========================= */
-
-    function openGallery(item) {
-
-        const galleryData = item.getAttribute("data-gallery");
-
-        if (!galleryData) return;
-
-        try {
-
-            currentGallery = JSON.parse(galleryData);
-
-        } catch (error) {
-
-            console.error("Gallery data error:", error);
-            return;
-
-        }
-
-        if (!currentGallery.length) return;
-
-        currentIndex = 0;
-
-        lightboxTitle.textContent =
-            item.getAttribute("data-project") || "Project Gallery";
-
-        createThumbnails();
-
-        updateGallery();
-
-        lightbox.classList.add("active");
-        lightbox.setAttribute("aria-hidden", "false");
-        document.body.classList.add("lightbox-open");
-
-    }
-
-
-    /* =========================
-       UPDATE MAIN IMAGE
-    ========================= */
-
-    function updateGallery() {
-
-        const image = currentGallery[currentIndex];
-
-        lightboxImg.style.opacity = "0";
-
-        setTimeout(() => {
-
-            lightboxImg.src = image.src;
-            lightboxImg.alt = image.caption || lightboxTitle.textContent;
-
-            lightboxCaption.textContent = image.caption || "";
-
-            lightboxCounter.textContent =
-                `${String(currentIndex + 1).padStart(2, "0")} / ${String(currentGallery.length).padStart(2, "0")}`;
-
-            lightboxImg.onload = function () {
-                lightboxImg.style.opacity = "1";
-            };
-
-            updateActiveThumbnail();
-
-        }, 100);
-
-    }
-
-
-    /* =========================
-       THUMBNAILS
-    ========================= */
-
-    function createThumbnails() {
-
-        thumbnailStrip.innerHTML = "";
-
-        currentGallery.forEach((image, index) => {
-
-            const thumbnail = document.createElement("img");
-
-            thumbnail.src = image.src;
-            thumbnail.alt = image.caption || `Image ${index + 1}`;
-            thumbnail.className = "thumbnail";
-
-            thumbnail.addEventListener("click", function () {
-
-                currentIndex = index;
-                updateGallery();
-
-            });
-
-            thumbnailStrip.appendChild(thumbnail);
-
-        });
-
-    }
-
-
-    function updateActiveThumbnail() {
-
-        const thumbnails =
-            thumbnailStrip.querySelectorAll(".thumbnail");
-
-        thumbnails.forEach((thumbnail, index) => {
-
-            thumbnail.classList.toggle(
-                "active",
-                index === currentIndex
-            );
-
-        });
-
-        const activeThumbnail = thumbnails[currentIndex];
-
-        if (activeThumbnail) {
-
-            activeThumbnail.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-                inline: "center"
-            });
-
-        }
-
-    }
-
-
-    /* =========================
-       NEXT / PREVIOUS
-    ========================= */
-
-    function nextImage() {
-
-        if (!currentGallery.length) return;
-
-        currentIndex++;
-
-        if (currentIndex >= currentGallery.length) {
-            currentIndex = 0;
-        }
-
-        updateGallery();
-
-    }
-
-
-    function previousImage() {
-
-        if (!currentGallery.length) return;
-
-        currentIndex--;
-
-        if (currentIndex < 0) {
-            currentIndex = currentGallery.length - 1;
-        }
-
-        updateGallery();
-
-    }
-
-
-    /* =========================
-       CLOSE
-    ========================= */
-
-    function closeGallery() {
-
-        lightbox.classList.remove("active");
-        lightbox.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("lightbox-open");
-
-        lightboxImg.src = "";
-
-        currentGallery = [];
-        currentIndex = 0;
-
-    }
-
-
-    /* =========================
-       CLICK PROJECT CARDS
-    ========================= */
-
-    document.querySelectorAll(".portfolio-item[data-gallery]")
-        .forEach(item => {
-
-            const card = item.querySelector(".project-card");
-
-            card.addEventListener("click", function () {
-
-                openGallery(item);
-
-            });
-
-        });
-
-
-    /* =========================
-       BUTTONS
-    ========================= */
-
-    nextButton.addEventListener("click", nextImage);
-
-    prevButton.addEventListener("click", previousImage);
-
-    closeButton.addEventListener("click", closeGallery);
-
-
-    /* =========================
-       CLICK BACKGROUND TO CLOSE
-    ========================= */
-
-    lightbox.addEventListener("click", function (event) {
-
-        if (event.target === lightbox) {
-            closeGallery();
-        }
-
-    });
-
-
-    /* =========================
-       KEYBOARD CONTROLS
-    ========================= */
-
-    document.addEventListener("keydown", function (event) {
-
-        if (!lightbox.classList.contains("active")) return;
-
-        if (event.key === "Escape") {
-            closeGallery();
-        }
-
-        if (event.key === "ArrowRight") {
-            nextImage();
-        }
-
-        if (event.key === "ArrowLeft") {
-            previousImage();
-        }
-
-    });
-
-
-    /* =========================
-       MOBILE SWIPE
-    ========================= */
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    lightbox.addEventListener("touchstart", function (event) {
-
-        touchStartX = event.changedTouches[0].screenX;
-
-    }, { passive: true });
-
-
-    lightbox.addEventListener("touchend", function (event) {
-
-        touchEndX = event.changedTouches[0].screenX;
-
-        const swipeDistance = touchEndX - touchStartX;
-
-        if (Math.abs(swipeDistance) < 50) return;
-
-        if (swipeDistance < 0) {
-            nextImage();
-        } else {
-            previousImage();
-        }
-
-    }, { passive: true });
-
-});
+const header=document.getElementById('site-header');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>30));
+const items=document.querySelectorAll('.portfolio-item');
+const buttons=document.querySelectorAll('.filter-btn');
+function filterSelection(category){items.forEach(item=>{item.style.display=(category==='all'||item.classList.contains(category))?'block':'none';});}
+buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');filterSelection(btn.dataset.filter);}));
+filterSelection('all');
+const lightbox=document.getElementById('lightbox'),img=document.getElementById('lightbox-img'),caption=document.getElementById('lightbox-caption'),title=document.getElementById('lightbox-title'),counter=document.getElementById('lightbox-counter'),thumbs=document.getElementById('thumbnail-strip');
+let gallery=[],index=0;
+function openProject(item){try{gallery=JSON.parse(item.dataset.gallery||'[]');}catch(e){gallery=[];}if(!gallery.length)return;index=0;title.textContent=item.dataset.caption||'Project Gallery';thumbs.innerHTML='';gallery.forEach((g,i)=>{const t=document.createElement('img');t.src=g.src;t.className='thumbnail';t.alt=g.caption||'';t.onclick=()=>{index=i;updateGallery()};thumbs.appendChild(t)});updateGallery();lightbox.style.display='flex';document.body.classList.add('lightbox-open');}
+function updateGallery(){const g=gallery[index];img.style.opacity='0';const pre=new Image();pre.onload=()=>{img.src=g.src;img.alt=g.caption||'';img.style.opacity='1'};pre.onerror=()=>{img.src=g.src;img.style.opacity='1'};pre.src=g.src;caption.textContent=g.caption||'';counter.textContent=`${String(index+1).padStart(2,'0')} / ${String(gallery.length).padStart(2,'0')}`;document.querySelectorAll('#thumbnail-strip .thumbnail').forEach((t,i)=>t.classList.toggle('active',i===index));}
+function next(){if(gallery.length){index=(index+1)%gallery.length;updateGallery()}}
+function prev(){if(gallery.length){index=(index-1+gallery.length)%gallery.length;updateGallery()}}
+function closeLightbox(){lightbox.style.display='none';document.body.classList.remove('lightbox-open');gallery=[];img.src='';}
+document.querySelectorAll('[data-gallery]').forEach(el=>el.addEventListener('click',()=>openProject(el)));
+document.getElementById('lightbox-close').onclick=closeLightbox;document.getElementById('lightbox-next').onclick=e=>{e.stopPropagation();next()};document.getElementById('lightbox-prev').onclick=e=>{e.stopPropagation();prev()};lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});document.addEventListener('keydown',e=>{if(lightbox.style.display!=='flex')return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
+let touchX=0;lightbox.addEventListener('touchstart',e=>touchX=e.changedTouches[0].screenX,{passive:true});lightbox.addEventListener('touchend',e=>{const d=e.changedTouches[0].screenX-touchX;if(Math.abs(d)>50)d<0?next():prev()},{passive:true});
 </script>
 
 </body>
