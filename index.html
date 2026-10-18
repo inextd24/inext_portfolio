@@ -3,287 +3,1451 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="INEXT — premium architectural visualization portfolio.">
+<meta name="description" content="INEXT — Architectural visualization portfolio specializing in exterior elevations, interior renders, and cinematic walkthroughs.">
 <title>INEXT | Designing Inside. Defining Outside.</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+BankGothic Md BT:wght@300;400;500;600&family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
-:root{--gold:#d4af37;--bg:#090909;--surface:#111;--text:#fff;--muted:#aaa59b;--line:rgba(255,255,255,.11)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Poppins,sans-serif}body.lock{overflow:hidden}a{color:inherit}button{font-family:inherit}
-header{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:22px 7%;transition:.3s}header.scrolled{background:rgba(8,8,8,.92);backdrop-filter:blur(15px);padding:14px 7%;border-bottom:1px solid var(--line)}.logo{font:500 28px 'Playfair Display';letter-spacing:4px;color:var(--gold)}nav{display:flex;gap:24px}nav a{font-size:11px;color:#bbb;text-decoration:none}nav a:hover{color:var(--gold)}
-.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden}.hero-media,.hero-media:after{position:absolute;inset:0}.hero-media img{width:100%;height:100%;object-fit:cover;filter:brightness(.65)}.hero-media:after{content:"";background:linear-gradient(to top,rgba(0,0,0,.96),rgba(0,0,0,.18) 60%,rgba(0,0,0,.35))}.hero-content{position:relative;z-index:2;width:86%;max-width:1300px;margin:auto;padding-bottom:10vh}.eyebrow,.section-no,.category{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}.hero h1{font:500 clamp(54px,8vw,112px)/.9 'Playfair Display';letter-spacing:-3px;margin:18px 0}.hero h1 span{color:var(--gold)}.hero p{max-width:620px;color:#d0cdc6;font-size:14px;line-height:1.8}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;padding:13px 22px;border:1px solid var(--line);font-size:10px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:.3s}.btn.primary{background:var(--gold);border-color:var(--gold);color:#080808}.btn:hover{transform:translateY(-2px);border-color:var(--gold)}
-.section{padding:110px 7%}.dark{background:#101010}.head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:42px}.head h2{font:500 clamp(42px,5vw,68px)/1 'Playfair Display';margin:12px 0 0}.intro{max-width:520px;color:var(--muted);font-size:13px;line-height:1.8}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:38px}.filter{background:transparent;border:1px solid var(--line);color:#aaa;padding:10px 15px;font-size:10px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:3px}.filter:hover,.filter.active{background:var(--gold);border-color:var(--gold);color:#080808}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.project{cursor:pointer}.project.hide{display:none}.card{position:relative;min-height:380px;overflow:hidden;background:var(--surface);border:1px solid rgba(255,255,255,.04)}.card img,.card video{width:100%;height:100%;min-height:380px;object-fit:cover;display:block;transition:.7s}.card:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.94),transparent 66%);pointer-events:none}.card:hover img,.card:hover video{transform:scale(1.045);filter:brightness(.7)}.count{position:absolute;z-index:2;right:15px;top:15px;padding:7px 11px;border:1px solid rgba(212,175,55,.7);border-radius:20px;background:rgba(0,0,0,.7);color:var(--gold);font-size:10px}..single{position:absolute;z-index:2;left:15px;top:15px;background:rgba(0,0,0,.62);padding:6px 9px;color:#ddd;font-size:9px;letter-spacing:1px;text-transform:uppercase}.overlay{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:70px 24px 24px}.overlay h3{font:500 25px 'Playfair Display';margin:7px 0}.meta{font-size:11px;color:#bbb}.arrow{margin-top:11px;color:var(--gold);font-size:11px}.wide{grid-column:span 2}.wide .card,.wide .card img{min-height:500px}
-.featured{position:relative;overflow:hidden;cursor:pointer}.featured img{width:100%;height:min(70vh,720px);object-fit:cover;display:block;transition:.8s}.featured:hover img{transform:scale(1.025);filter:brightness(.75)}.featured .overlay{padding:100px 5% 38px}.featured h3{font:500 clamp(36px,5vw,62px) 'Playfair Display';margin:8px 0}
-/* PROJECT DETAIL */
-.detail{display:none;position:fixed;inset:0;z-index:1800;background:rgba(5,5,5,.98);overflow:auto;padding:90px 7% 50px}.detail.open{display:block}.detail-inner{max-width:1400px;margin:auto}.detail-top{display:flex;justify-content:space-between;gap:30px;margin-bottom:32px}.detail-top h2{font:500 clamp(40px,5vw,72px)/1 'Playfair Display';margin:10px 0}.detail-desc{max-width:700px;color:var(--muted);font-size:13px;line-height:1.8}.close-detail{width:45px;height:45px;background:transparent;border:1px solid var(--line);color:var(--gold);font-size:27px;cursor:pointer}.close-detail:hover{background:var(--gold);color:#000}.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.detail-item{position:relative;overflow:hidden;cursor:pointer;background:#111}.detail-item img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;transition:.5s}.detail-item:hover img{transform:scale(1.025);filter:brightness(.78)}.caption{position:absolute;left:0;right:0;bottom:0;padding:38px 18px 15px;background:linear-gradient(transparent,rgba(0,0,0,.9));font-size:11px;color:#ddd}
+/* LOCAL FONT DECLARATION: BankGothic Md BT */
+@font-face {
+  font-family: 'BankGothic Md BT';
+  src: url('BankGothicMdBT.woff2') format('woff2'),
+       url('BankGothicMdBT.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --gold: #d4af37;
+  --gold-glow: rgba(212, 175, 55, 0.35);
+  --bg: #090909;
+  --surface: #111111;
+  --text: #ffffff;
+  --muted: #aaa59b;
+  --line: rgba(255, 255, 255, 0.11);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+body.lock { overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 7%;
+  transition: all 0.3s ease;
+}
+header.scrolled {
+  background: rgba(8, 8, 8, 0.92);
+  backdrop-filter: blur(15px);
+  padding: 14px 7%;
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  font-family: 'BankGothic Md BT', 'Bank Gothic', 'Eurostile', 'Microgramma', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+nav { display: flex; gap: 28px; }
+nav a {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #bbb;
+  transition: color 0.3s;
+}
+nav a:hover { color: var(--gold); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hero-media, .hero-media:after { position: absolute; inset: 0; }
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65);
+}
+.hero-media:after {
+  content: "";
+  background: linear-gradient(to top, rgba(9, 9, 9, 0.98), rgba(0, 0, 0, 0.25) 55%, rgba(0, 0, 0, 0.5));
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 86%;
+  max-width: 1300px;
+  margin: auto;
+  padding-bottom: 11vh;
+}
+.eyebrow, .section-no, .category {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 7.5vw, 108px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin: 18px 0;
+}
+.hero h1 span { color: var(--gold); }
+.hero p {
+  max-width: 580px;
+  color: #d0cdc6;
+  font-size: 14px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 26px;
+  border: 1px solid var(--line);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn.primary {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #080808;
+  font-weight: 500;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
+.btn.primary:hover {
+  box-shadow: 0 8px 22px var(--gold-glow);
+}
+
+/* SECTIONS */
+.section { padding: 110px 7%; }
+.dark { background: #0e0e0e; }
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 44px;
+}
+.head h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 4.5vw, 64px);
+  font-weight: 500;
+  line-height: 1.05;
+  margin: 12px 0 0;
+}
+.intro {
+  max-width: 480px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.filter {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: #999;
+  padding: 9px 16px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.filter:hover, .filter.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #080808;
+  font-weight: 500;
+}
+
+/* GRID & CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.project { cursor: pointer; }
+.project.hide { display: none; }
+.card {
+  position: relative;
+  min-height: 400px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  isolation: isolate;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 1px solid transparent;
+  transition: 0.45s ease;
+  pointer-events: none;
+}
+.project:hover .card::before {
+  border-color: rgba(212, 175, 55, 0.42);
+}
+.card img, .card video {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.6s ease;
+}
+.card:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 5%, rgba(0, 0, 0, 0.2) 65%, transparent);
+  pointer-events: none;
+}
+.project:hover .card img,
+.project:hover .card video {
+  transform: scale(1.045);
+  filter: brightness(0.8);
+}
+.count {
+  position: absolute;
+  z-index: 2;
+  right: 16px;
+  top: 16px;
+  padding: 6px 12px;
+  border: 1px solid rgba(212, 175, 55, 0.7);
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.single {
+  position: absolute;
+  z-index: 2;
+  left: 16px;
+  top: 16px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 6px 10px;
+  color: #ddd;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.overlay {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 80px 24px 24px;
+}
+.overlay h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 6px 0 4px;
+}
+.meta {
+  font-size: 11px;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.meta::before {
+  content: "";
+  width: 16px;
+  height: 1px;
+  background: var(--gold);
+  display: inline-block;
+}
+.arrow {
+  margin-top: 12px;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: transform 0.3s;
+}
+.project:hover .arrow { transform: translateX(5px); }
+
+/* VIDEO PLAY ICON */
+.video-card::before {
+  content: "▶";
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  margin: -26px 0 0 -26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(212, 175, 55, 0.75);
+  border-radius: 50%;
+  color: var(--gold);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  font-size: 14px;
+  padding-left: 3px;
+  transition: 0.35s ease;
+  pointer-events: none;
+}
+.video-card:hover::before {
+  transform: scale(1.1);
+  background: var(--gold);
+  color: #090909;
+}
+
+/* FEATURED WORK */
+.featured {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.featured img {
+  width: 100%;
+  height: min(70vh, 680px);
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease, filter 0.6s ease;
+}
+.featured:hover img {
+  transform: scale(1.025);
+  filter: brightness(0.85);
+}
+.featured .overlay {
+  padding: 100px 5% 36px;
+  background: linear-gradient(to top, rgba(0,0,0,0.95), transparent 70%);
+}
+.featured h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 4.5vw, 56px);
+  font-weight: 500;
+  margin: 8px 0;
+}
+
+/* PROJECT DETAIL MODAL */
+.detail {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1800;
+  background: radial-gradient(circle at 75% 0%, rgba(212, 175, 55, 0.05), transparent 30%), rgba(5, 5, 5, 0.985);
+  overflow: auto;
+  padding: 85px 7% 50px;
+}
+.detail.open { display: block; }
+.detail-inner { max-width: 1400px; margin: auto; }
+.detail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 34px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.detail-top h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 4.5vw, 64px);
+  font-weight: 500;
+  margin: 10px 0;
+  letter-spacing: -1px;
+}
+.detail-desc {
+  max-width: 700px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+.close-detail {
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--gold);
+  font-size: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.close-detail:hover {
+  background: var(--gold);
+  color: #000;
+}
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.detail-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.detail-item img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+.detail-item:hover img {
+  transform: scale(1.025);
+  filter: brightness(0.85);
+}
+.caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 30px 18px 14px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  font-size: 11px;
+  color: #eee;
+  letter-spacing: 0.5px;
+}
+
 /* LIGHTBOX */
-.lightbox{display:none;position:fixed;z-index:2200;inset:0;background:rgba(0,0,0,.985);align-items:center;justify-content:center;padding:20px}.lightbox.open{display:flex}.lb-content{width:min(1250px,94vw);height:min(92vh,900px);display:flex;flex-direction:column;align-items:center}.lb-head{width:100%;display:flex;justify-content:space-between;margin-bottom:10px}.lb-title{font:500 21px 'Playfair Display'}.lb-counter{color:var(--gold);font-size:12px}.lb-main{position:relative;flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center}.lb-main img{max-width:88%;max-height:100%;object-fit:contain;border-radius:5px;box-shadow:0 25px 70px #000;transition:.2s}.lb-close,.lb-prev,.lb-next{position:absolute;z-index:3;color:var(--gold);cursor:pointer;user-select:none}.lb-close{top:15px;right:25px;font-size:42px}.lb-prev,.lb-next{top:50%;transform:translateY(-50%);font-size:45px;padding:18px}.lb-prev{left:0}.lb-next{right:0}.lb-caption{margin:10px 0;color:var(--gold);font-size:13px}.thumbs{width:100%;display:flex;gap:8px;overflow-x:auto;padding:8px 2px}.thumb{width:78px;height:52px;flex:0 0 auto;object-fit:cover;opacity:.4;border:1px solid transparent;border-radius:4px;cursor:pointer}.thumb.active{opacity:1;border-color:var(--gold)}
-/* OTHER SECTIONS */
-.services{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.service{min-height:250px;padding:30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.service:hover{background:#151515}.service h3{font:500 24px 'Playfair Display';margin:55px 0 12px}.service p,.process p,.about p{color:var(--muted);font-size:12px;line-height:1.8}.processes{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}.process{padding:28px 18px;border-right:1px solid var(--line)}.process h3{font:500 22px 'Playfair Display';margin:35px 0 8px}.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}.about blockquote{font:500 clamp(38px,4vw,58px)/1 'Playfair Display';margin:0}.about blockquote span{color:var(--gold)}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:24px}.tags span{border:1px solid var(--line);padding:8px 11px;color:#aaa;font-size:9px;text-transform:uppercase;letter-spacing:1px}.reel{position:relative;min-height:70vh;overflow:hidden}.reel video{width:100%;height:70vh;object-fit:cover;filter:brightness(.5)}.reel-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.reel-overlay h2{font:500 clamp(42px,6vw,78px)/.96 'Playfair Display';max-width:850px}.contact{text-align:center;padding:140px 7%;background:radial-gradient(circle,rgba(212,175,55,.08),transparent 35%),#090909}.contact h2{font:500 clamp(45px,7vw,90px)/.95 'Playfair Display';margin:12px 0 25px}.contact p{max-width:560px;margin:auto;color:var(--muted);font-size:13px}footer{text-align:center;padding:28px;background:#070707;color:#666;font-size:11px}.whatsapp{position:fixed;z-index:1200;right:20px;bottom:20px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#25d366;text-decoration:none;font-size:22px}
-@media(max-width:1050px){.grid{grid-template-columns:repeat(2,1fr)}.services{grid-template-columns:repeat(2,1fr)}.processes{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr;gap:45px}}
-@media(max-width:700px){header{padding:18px 5%}nav{gap:11px}nav a{font-size:9px}.hero-content{width:90%;padding-bottom:70px}.hero h1{font-size:50px}.section{padding:80px 5%}.head{display:block}.intro{margin-top:18px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.wide .card,.wide .card img{min-height:380px}.card,.card img,.card video{min-height:330px}.detail{padding:85px 5% 35px}.detail-grid{grid-template-columns:1fr}.detail-top{gap:12px}.close-detail{width:40px;height:40px}.services,.processes{grid-template-columns:1fr}.process{border-right:0;border-bottom:1px solid var(--line)}.lb-content{width:100%;height:90vh}.lb-main img{max-width:94%}.lb-prev,.lb-next{font-size:30px;padding:10px}.lb-prev{left:-5px}.lb-next{right:-5px}}
-
-/* ===== INEXT PREMIUM PROJECT REFINEMENTS ===== */
-.project-card{
-    border-radius:2px;
-    isolation:isolate;
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2200;
+  inset: 0;
+  background: rgba(3, 3, 3, 0.985);
+  backdrop-filter: blur(12px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
-.project-card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    z-index:1;
-    border:1px solid rgba(212,175,55,0);
-    transition:.45s ease;
-    pointer-events:none;
+.lightbox.open { display: flex; }
+.lb-content {
+  width: min(1300px, 94vw);
+  height: min(92vh, 900px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.project-card:hover::before{
-    border-color:rgba(212,175,55,.42);
+.lb-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
 }
-.project-card-media,
-.project-card.video-card video{
-    transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .7s ease;
+.lb-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 500;
 }
-.project-card:hover .project-card-media,
-.project-card.video-card:hover video{
-    transform:scale(1.035);
+.lb-counter {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 1px;
 }
-.project-overlay{
-    padding:95px 27px 27px;
+.lb-main {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.project-title{
-    font-size:28px;
-    letter-spacing:-.3px;
+.lb-main img {
+  max-width: 90%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+  transition: opacity 0.25s ease;
 }
-.project-meta{
-    display:flex;
-    align-items:center;
-    gap:9px;
+.lb-close, .lb-prev, .lb-next {
+  position: absolute;
+  z-index: 4;
+  color: var(--gold);
+  cursor: pointer;
+  user-select: none;
 }
-.project-meta::before{
-    content:"";
-    width:20px;
-    height:1px;
-    background:var(--gold);
-    display:inline-block;
+.lb-close {
+  top: 15px;
+  right: 25px;
+  font-size: 38px;
+  line-height: 1;
 }
-.visual-count{
-    letter-spacing:1.1px;
-    backdrop-filter:blur(8px);
+.lb-prev, .lb-next {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  padding: 16px;
 }
-.single-badge{
-    border:1px solid rgba(255,255,255,.16);
-    backdrop-filter:blur(8px);
+.lb-prev { left: 0; }
+.lb-next { right: 0; }
+.lb-caption {
+  margin: 12px 0 8px;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 0.5px;
 }
-.project-arrow{
-    opacity:.75;
-    transition:.3s;
+.thumbs {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 6px 2px;
+  scrollbar-width: thin;
 }
-.project-card:hover .project-arrow{
-    opacity:1;
-    transform:translateX(4px);
+.thumb {
+  width: 74px;
+  height: 48px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  opacity: 0.4;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.2s;
 }
-.project-detail{
-    background:
-        radial-gradient(circle at 75% 0%,rgba(212,175,55,.055),transparent 28%),
-        rgba(5,5,5,.985);
-}
-.detail-inner{
-    max-width:1500px;
-}
-.detail-top{
-    padding-bottom:28px;
-    border-bottom:1px solid var(--line);
-}
-.detail-top h2{
-    letter-spacing:-1.5px;
-}
-.detail-gallery{
-    margin-top:28px;
-}
-.detail-gallery-item{
-    border:1px solid rgba(255,255,255,.06);
-}
-.detail-gallery-caption{
-    letter-spacing:.2px;
-}
-.detail-gallery-item::after{
-    content:"VIEW";
-    position:absolute;
-    right:14px;
-    top:14px;
-    padding:6px 8px;
-    border:1px solid rgba(212,175,55,.45);
-    color:var(--gold);
-    background:rgba(0,0,0,.55);
-    font-size:8px;
-    letter-spacing:1.5px;
-    opacity:0;
-    transition:.3s;
-}
-.detail-gallery-item:hover::after{opacity:1}
-
-.project-detail .detail-label::after{
-    content:"  /  PROJECT GALLERY";
-    color:#666;
-    letter-spacing:1.5px;
+.thumb.active {
+  opacity: 1;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold);
 }
 
-.lightbox{
-    background:rgba(2,2,2,.985);
-    backdrop-filter:blur(10px);
+/* SERVICES & PROCESSES */
+.services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
 }
-.lightbox-header{
-    padding:0 4px;
+.service {
+  min-height: 250px;
+  padding: 34px 28px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: background 0.3s;
 }
-.lightbox-title{
-    letter-spacing:.2px;
+.service:hover { background: #131313; }
+.service h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 45px 0 12px;
 }
-.lightbox-main{
-    background:radial-gradient(circle,rgba(255,255,255,.035),transparent 60%);
+.service p, .process p, .about p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  font-weight: 300;
 }
-#lightbox-img{
-    max-width:90%;
+.processes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid var(--line);
 }
-.thumbnail-strip{
-    scrollbar-width:thin;
+.process {
+  padding: 30px 20px;
+  border-right: 1px solid var(--line);
 }
-.thumbnail{
-    border-radius:2px;
-}
-.thumbnail.active{
-    box-shadow:0 0 0 1px rgba(212,175,55,.25);
-}
-.video-card::after{
-    background:
-        linear-gradient(to top,rgba(0,0,0,.94),transparent 62%),
-        linear-gradient(transparent,rgba(0,0,0,.12));
-}
-.video-card::before{
-    content:"▶";
-    position:absolute;
-    z-index:4;
-    top:50%;
-    left:50%;
-    width:54px;
-    height:54px;
-    margin:-27px 0 0 -27px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:1px solid rgba(212,175,55,.7);
-    border-radius:50%;
-    color:var(--gold);
-    background:rgba(0,0,0,.45);
-    backdrop-filter:blur(8px);
-    font-size:15px;
-    padding-left:2px;
-    transition:.35s;
-}
-.video-card:hover::before{
-    transform:scale(1.08);
-    background:rgba(212,175,55,.9);
-    color:#080808;
-}
-@media(max-width:700px){
-    .project-overlay{padding:80px 20px 20px}
-    .project-title{font-size:24px}
-    .detail-gallery-item::after{display:none}
+.process h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 32px 0 8px;
 }
 
+/* ABOUT */
+.about {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+.about blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 3.8vw, 54px);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0;
+}
+.about blockquote span { color: var(--gold); }
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.tags span {
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  color: #bbb;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* REEL BANNER */
+.reel {
+  position: relative;
+  min-height: 65vh;
+  overflow: hidden;
+}
+.reel video {
+  width: 100%;
+  height: 65vh;
+  object-fit: cover;
+  filter: brightness(0.45);
+}
+.reel-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+.reel-overlay h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5.5vw, 70px);
+  font-weight: 500;
+  max-width: 850px;
+  line-height: 1.05;
+  margin: 16px 0 24px;
+}
+
+/* CONTACT & FOOTER */
+.contact {
+  text-align: center;
+  padding: 130px 7%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08), transparent 45%), #090909;
+}
+.contact h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 6vw, 84px);
+  font-weight: 500;
+  line-height: 0.98;
+  margin: 14px 0 24px;
+}
+.contact p {
+  max-width: 540px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+footer {
+  text-align: center;
+  padding: 26px;
+  background: #060606;
+  color: #666;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+footer strong {
+  font-family: 'BankGothic Md BT', 'Bank Gothic', 'Eurostile', sans-serif;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+.whatsapp {
+  position: fixed;
+  z-index: 1200;
+  right: 22px;
+  bottom: 22px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+  font-size: 24px;
+  transition: transform 0.3s;
+}
+.whatsapp:hover { transform: scale(1.08); }
+
+/* RESPONSIVE */
+@media (max-width: 1050px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .services { grid-template-columns: repeat(2, 1fr); }
+  .processes { grid-template-columns: repeat(2, 1fr); }
+  .about { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 700px) {
+  header { padding: 16px 5%; }
+  nav { gap: 14px; }
+  nav a { font-size: 9px; }
+  .hero-content { width: 100%; padding-bottom: 60px; }
+  .section { padding: 75px 5%; }
+  .head { display: block; }
+  .intro { margin-top: 16px; }
+  .grid { grid-template-columns: 1fr; }
+  .card, .card img, .card video { min-height: 340px; }
+  .detail { padding: 80px 5% 30px; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .services, .processes { grid-template-columns: 1fr; }
+  .process { border-right: 0; border-bottom: 1px solid var(--line); }
+  .lb-content { width: 100%; height: 90vh; }
+  .lb-main img { max-width: 95%; }
+  .lb-prev, .lb-next { font-size: 28px; padding: 10px; }
+  .lb-prev { left: -6px; }
+  .lb-next { right: -6px; }
+}
 </style>
 </head>
 <body>
-<header id="header"><div class="logo"><a href="#top">INEXT</a></div><nav><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></nav></header>
 
-<section class="hero" id="top"><div class="hero-media"><img src="RE_01_NB.png" alt="INEXT architectural visualization"></div><div class="hero-content"><div class="eyebrow">Architectural Visualization Studio</div><h1>Designing <span>Inside.</span><br>Defining Outside.</h1><p>High-fidelity 3D visualization for architecture, interiors, exteriors, elevations and cinematic walkthroughs.</p><div class="actions"><a class="btn primary" href="#work">Explore Work</a><a class="btn primary" href="#contact">Start a Project</a></div></div></section>
+<header id="header">
+  <div class="logo"><a href="#top">INEXT</a></div>
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-<section class="section" id="work"><div class="head"><div><div class="section-no">01 / Featured</div><h2>Selected Work</h2></div><div class="intro">A curated selection of INEXT visualizations. Each project is presented as one visual package, whether it contains one render or a complete gallery.</div></div>
-<div class="featured" data-project-id="featured" data-title="Modern Residential Architecture" data-type="Residential Elevation" data-description="Exterior architectural visualization and elevation presentation." data-gallery='[{"src":"RE_01_F.png","caption":"Front Elevation"},{"src":"FRS.jpg","caption":"Perspective View"},{"src":"opt ss 2.jpg","caption":"Elevation Detail"},{"src":"opt ss.jpg","caption":"Alternative View"}]'><img src="DA 1.jpg" alt="Modern Residential Architecture"><div class="overlay"><div class="category">Featured Residential</div><h3>Modern Residential Architecture</h3><div class="meta">Exterior Visualization · 04 Visuals</div><div class="arrow">View project →</div></div></div></section>
+<section class="hero" id="top">
+  <div class="hero-media"><img src="RE_01_NB.png" alt="INEXT architectural visualization"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Architectural Visualization Studio</div>
+    <h1>Designing <span>Inside.</span><br>Defining Outside.</h1>
+    <p>High-fidelity 3D visualization for architecture, interiors, exteriors, elevations, and cinematic walkthroughs.</p>
+    <div class="actions">
+      <a class="btn primary" href="#work">Explore Work</a>
+      <a class="btn" href="#contact">Start a Project</a>
+    </div>
+  </div>
+</section>
 
-<section class="section dark"><div class="head"><div><div class="section-no">02 / Portfolio</div><h2>Visual Work</h2></div><div class="intro">Projects are separated by visualization type. Multiple renders from the same project stay together, while single-render jobs remain independent.</div></div>
-<div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="residential">Residential</button><button class="filter" data-filter="commercial">Commercial</button><button class="filter" data-filter="front">Front Elevations</button><button class="filter" data-filter="interior">Interiors</button><button class="filter" data-filter="exterior">Exteriors</button><button class="filter" data-filter="walkthrough">Walkthroughs</button><button class="filter" data-filter="plans">2D / 3D</button></div>
-<div class="grid" id="grid">
+<!-- FEATURED -->
+<section class="section" id="work">
+  <div class="head">
+    <div>
+      <div class="section-no">01 / Featured</div>
+      <h2>Selected Work</h2>
+    </div>
+    <div class="intro">A curated selection of INEXT visualizations presented as cohesive project packages.</div>
+  </div>
+  <div class="featured" data-project-id="featured" data-title="Modern Residential Architecture" data-type="Residential Elevation" data-description="Exterior architectural visualization and elevation presentation package." data-gallery='[{"src":"RE_01_F.png","caption":"Front Elevation"},{"src":"FRS.jpg","caption":"Perspective View"},{"src":"opt ss 2.jpg","caption":"Elevation Detail"},{"src":"opt ss.jpg","caption":"Alternative View"}]'>
+    <img src="DA 1.jpg" alt="Modern Residential Architecture">
+    <div class="overlay">
+      <div class="category">Featured Residential</div>
+      <h3>Modern Residential Architecture</h3>
+      <div class="meta">Exterior Visualization · 04 Visuals</div>
+      <div class="arrow">View project →</div>
+    </div>
+  </div>
+</section>
 
-<article class="project residential " data-title="Modern Residence 01" data-type="Residential Elevation" data-description="Residential exterior visualization package containing front, perspective and night views." data-gallery='[{"src":"RE_01_F.png","caption":"Front Elevation"},{"src":"RE_01_P1.jpg","caption":"Perspective View"},{"src":"RE_01_P3.jpg","caption":"Perspective View"},{"src":"RE_01_NB.png","caption":"Night View"},{"src":"RE_01_NB2.jpg","caption":"Night View"},{"src":"RE_01_N.jpg","caption":"Night View"}]'><div class="card"><img src="RE_01_P1.jpg" alt="Modern Residence 01"><span class="count">06 VISUALS</span><div class="overlay"><div class="category">Residential Elevation</div><h3>Modern Residence 01</h3><div class="meta">Exterior Visualization</div><div class="arrow">View project →</div></div></div></article>
+<!-- PORTFOLIO GRID -->
+<section class="section dark">
+  <div class="head">
+    <div>
+      <div class="section-no">02 / Portfolio</div>
+      <h2>Visual Work</h2>
+    </div>
+    <div class="intro">Filter by project scope. Multi-angle presentations keep all vantage points unified.</div>
+  </div>
 
-<article class="project residential" data-title="Modern Residence 02" data-type="Residential Elevation" data-description="Residential elevation visualization package." data-gallery='[{"src":"RE_02_F.jpg","caption":"Front Elevation"},{"src":"RE_02_P1.jpg","caption":"Perspective View"},{"src":"RE_02_T.jpg","caption":"Elevation Detail"},{"src":"RE_02_N.jpg","caption":"Night View"}]'><div class="card"><img src="DA 1.jpg" alt="Modern Residence 02"><span class="count">04 VISUALS</span><div class="overlay"><div class="category">Residential Elevation</div><h3>Modern Residence 02</h3><div class="meta">Exterior Visualization</div><div class="arrow">View project →</div></div></div></article>
+  <div class="filters">
+    <button class="filter active" data-filter="all">All</button>
+    <button class="filter" data-filter="residential">Residential</button>
+    <button class="filter" data-filter="commercial">Commercial</button>
+    <button class="filter" data-filter="front">Front Elevations</button>
+    <button class="filter" data-filter="interior">Interiors</button>
+    <button class="filter" data-filter="exterior">Exteriors</button>
+    <button class="filter" data-filter="walkthrough">Walkthroughs</button>
+    <button class="filter" data-filter="plans">2D / 3D</button>
+  </div>
 
-<article class="project residential" data-title="Modern Residence 03" data-type="Residential Elevation" data-description="Single hero visualization for a residential elevation." data-gallery='[{"src":"RE_03_F.jpg","caption":"Main Elevation"},{"src":"RE_03_P.jpg","caption":"Perspective View"},{"src":"RE_03_S.jpg","caption":"Perspective View"},{"src":"RE_03_H.png","caption":"Perspective View"}]'><div class="card"><img src="RE_03_F.jpg" alt="Modern Residence 03"><span class="count">04 VISUAL</span><div class="overlay"><div class="category">Residential Elevation</div><h3>Modern Residence 03</h3><div class="meta">Single Elevation Render</div><div class="arrow">View project →</div></div></div></article>
+  <div class="grid" id="grid">
+    <!-- Residential -->
+    <article class="project residential" data-title="Modern Residence 01" data-type="Residential Elevation" data-description="Residential exterior visualization package containing front, perspective, and night views." data-gallery='[{"src":"RE_01_F.png","caption":"Front Elevation"},{"src":"RE_01_P1.jpg","caption":"Perspective View"},{"src":"RE_01_P3.jpg","caption":"Perspective View"},{"src":"RE_01_NB.png","caption":"Night View"},{"src":"RE_01_NB2.jpg","caption":"Night View"},{"src":"RE_01_N.jpg","caption":"Night View"}]'>
+      <div class="card">
+        <img src="RE_01_P1.jpg" alt="Modern Residence 01">
+        <span class="count">06 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Residential Elevation</div>
+          <h3>Modern Residence 01</h3>
+          <div class="meta">Exterior Visualization</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project residential" data-title="Modern Residence 04" data-type="Residential Elevation" data-description="Single hero visualization for a residential elevation." data-gallery='[{"src":"RE_04_PR.jpg","caption":"Main Elevation"},{"src":"RE_04_FV.jpg","caption":"Front View"},{"src":"RE_04_RV.jpg","caption":"Right View"},{"src":"RE_04_LV.jpg","caption":"Left View"},{"src":"RE_04_PL.jpg","caption":"Perspective Left View"},{"src":"RE_04_D.jpg","caption":"Day View"},{"src":"RE_04_N.png","caption":"Night View"},{"src":"RE_04_CC.jpg","caption":"Color Combinations"}]'><div class="card"><img src="RE_04_PR.jpg" alt="Modern Residence 04"><span class="count">08 VISUAL</span><div class="overlay"><div class="category">Residential Elevation</div><h3>Modern Residence 04</h3><div class="meta">Single Elevation Render</div><div class="arrow">View project →</div></div></div></article>
+    <article class="project residential" data-title="Modern Residence 02" data-type="Residential Elevation" data-description="Residential elevation visualization package." data-gallery='[{"src":"RE_02_F.jpg","caption":"Front Elevation"},{"src":"RE_02_P1.jpg","caption":"Perspective View"},{"src":"RE_02_T.jpg","caption":"Elevation Detail"},{"src":"RE_02_N.jpg","caption":"Night View"}]'>
+      <div class="card">
+        <img src="DA 1.jpg" alt="Modern Residence 02">
+        <span class="count">04 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Residential Elevation</div>
+          <h3>Modern Residence 02</h3>
+          <div class="meta">Exterior Visualization</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project residential" data-title="Modern Residence 05" data-type="Residential Elevation" data-description="Single hero visualization for a residential elevation." data-gallery='[{"src":"BE_05_ P.jpg","caption":"Main Elevation"},{"src":"BE_05_F.jpg","caption":"Front View"},{"src":"BE_05_R.jpg","caption":"Right View"},{"src":"BE_05_N.jpg","caption":"Night View"},{"src":"BE_05_CC.jpg","caption":"Color Combinations"}]'><div class="card"><img src="BE_05_ P.jpg" alt="Modern Residence 05"><span class="count">05 VISUAL</span><div class="overlay"><div class="category">Residential Elevation</div><h3>Modern Residence 05</h3><div class="meta">Single Elevation Render</div><div class="arrow">View project →</div></div></div></article>
+    <article class="project residential" data-title="Modern Residence 03" data-type="Residential Elevation" data-description="Hero visualization suite for residential elevation." data-gallery='[{"src":"RE_03_F.jpg","caption":"Main Elevation"},{"src":"RE_03_P.jpg","caption":"Perspective View"},{"src":"RE_03_S.jpg","caption":"Perspective View"},{"src":"RE_03_H.png","caption":"Perspective View"}]'>
+      <div class="card">
+        <img src="RE_03_F.jpg" alt="Modern Residence 03">
+        <span class="count">04 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Residential Elevation</div>
+          <h3>Modern Residence 03</h3>
+          <div class="meta">Elevation Render Suite</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project residential" data-title="Modern Residence 06" data-type="Residential Elevation" data-description="Single hero visualization for a residential elevation." data-gallery='[{"src":"RE_06_P.jpg","caption":"Main Elevation"},{"src":"RE_06_F.jpg","caption":"Front View"},{"src":"RE_06_R.jpg","caption":"Right View"},{"src":"RE_06_D.jpg","caption":"Day View"},{"src":"RE_06_N.jpg","caption":"Night View"},{"src":"RE_06_CC.jpg","caption":"Color Combinations"}]'><div class="card"><img src="RE_06_P.jpg" alt="Modern Residence 06"><span class="count">07 VISUAL</span><div class="overlay"><div class="category">Residential Elevation</div><h3>Modern Residence 06</h3><div class="meta">Single Elevation Render</div><div class="arrow">View project →</div></div></div></article>
-    
-<article class="project front" data-title="Front Elevation 01" data-type="Front Elevation" data-description="Focused front-elevation presentation." data-gallery='[{"src":"NC_P.jpg","caption":"Perspective Elevation"},{"src":"NC_F.jpg","caption":"Front Elevation"},{"src":"NC_S.jpg","caption":"Side Elevation"},{"src":"NC_01.jpg","caption":"Perspective Elevation"},{"src":"NC_T.jpg","caption":"Top View"},{"src":"NC_N.jpg","caption":"Night Elevation"},{"src":"NC_cco.jpg","caption":"Option Elevation"}]'><div class="card"><img src="NC_P.jpg" alt="Front Elevation 01"><span class="single">Single Visual</span><span class="count">07 VISUAL</span><div class="overlay"><div class="category">Front Elevation</div><h3>Front Elevation 01</h3><div class="meta">Architectural Visualization</div><div class="arrow">View project →</div></div></div></article>
+    <article class="project residential" data-title="Modern Residence 04" data-type="Residential Elevation" data-description="Multi-angle residential elevation package with day, night, and material variations." data-gallery='[{"src":"RE_04_PR.jpg","caption":"Main Elevation"},{"src":"RE_04_FV.jpg","caption":"Front View"},{"src":"RE_04_RV.jpg","caption":"Right View"},{"src":"RE_04_LV.jpg","caption":"Left View"},{"src":"RE_04_PL.jpg","caption":"Perspective Left View"},{"src":"RE_04_D.jpg","caption":"Day View"},{"src":"RE_04_N.png","caption":"Night View"},{"src":"RE_04_CC.jpg","caption":"Color Combinations"}]'>
+      <div class="card">
+        <img src="RE_04_PR.jpg" alt="Modern Residence 04">
+        <span class="count">08 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Residential Elevation</div>
+          <h3>Modern Residence 04</h3>
+          <div class="meta">Full Elevation Package</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project front" data-title="Front Elevation 02" data-type="Front Elevation" data-description="Two-view front elevation visualization." data-gallery='[{"src":"S_perspective.jpg","caption":"Front Perspective"},{"src":"S_front.jpg","caption":"Front Elevation"},{"src":"S_side.jpg","caption":"Side Elevation"},{"src":"S_back.jpg","caption":"Back Perspective"},{"src":"S_night.jpg","caption":"Night View"},{"src":"S_view.jpg","caption":"Optional Elevation"},{"src":"S_cc.jpg","caption":"Color Combinations"}]'><div class="card"><img src="S_perspective.jpg" alt="Front Elevation 02"><span class="count">07 VISUALS</span><div class="overlay"><div class="category">Front Elevation</div><h3>Front Elevation 02</h3><div class="meta">Exterior Visualization</div><div class="arrow">View project →</div></div></div></article>
+    <article class="project residential" data-title="Modern Residence 05" data-type="Residential Elevation" data-description="Complete bungalow elevation renders including front, perspective, and night studies." data-gallery='[{"src":"BE_05_P.jpg","caption":"Main Elevation"},{"src":"BE_05_F.jpg","caption":"Front View"},{"src":"BE_05_R.jpg","caption":"Right View"},{"src":"BE_05_N.jpg","caption":"Night View"},{"src":"BE_05_CC.jpg","caption":"Color Combinations"}]'>
+      <div class="card">
+        <img src="BE_05_P.jpg" alt="Modern Residence 05" onerror="this.src='BE_05_ P.jpg'">
+        <span class="count">05 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Residential Elevation</div>
+          <h3>Modern Residence 05</h3>
+          <div class="meta">Elevation Studies</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project commercial" data-title="Commercial Architecture 01" data-type="Commercial Elevation" data-description="Commercial architectural visualization package." data-gallery='[{"src":"CR1.jpg","caption":"Perspective View"},{"src":"CR2.jpg","caption":"Eagel Eye View"},{"src":"CR3.jpg","caption":"Main Entrance"},{"src":"CR5.jpg","caption":"Entrance 2"},{"src":"CR2n.jpg","caption":"Night View"},{"src":"CR N.png","caption":"Night View2"},{"src":"CR6.jpg","caption":"Exterior Detail"}]'><div class="card"><img src="CR1.jpg" alt="Commercial Architecture 01"><span class="count">08 VISUALS</span><div class="overlay"><div class="category">Commercial Elevation</div><h3>Commercial Architecture 01</h3><div class="meta">Exterior Visualization</div><div class="arrow">View project →</div></div></div></article>
+    <article class="project residential" data-title="Modern Residence 06" data-type="Residential Elevation" data-description="Multi-angle residential visualization package." data-gallery='[{"src":"RE_06_P.jpg","caption":"Main Elevation"},{"src":"RE_06_F.jpg","caption":"Front View"},{"src":"RE_06_R.jpg","caption":"Right View"},{"src":"RE_06_D.jpg","caption":"Day View"},{"src":"RE_06_N.jpg","caption":"Night View"},{"src":"RE_06_CC.jpg","caption":"Color Combinations"}]'>
+      <div class="card">
+        <img src="RE_06_P.jpg" alt="Modern Residence 06">
+        <span class="count">07 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Residential Elevation</div>
+          <h3>Modern Residence 06</h3>
+          <div class="meta">Full Elevation Package</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project commercial" data-title="Commercial Architecture 02" data-type="Commercial Elevation" data-description="Commercial architectural visualization package." data-gallery='[{"src":"CR_02_F.jpg","caption":"Front View"},{"src":"CR_02_P.jpg","caption":"Perspective View 01"},{"src":"CR_02_P2.jpg","caption":"Perspective View 02"},{"src":"CR_02_N.jpg","caption":"Night View"},{"src":"CR_02_OA.jpg","caption":"Optional View"}]'><div class="card"><img src="CR_02_F.jpg" alt="Commercial Architecture 02"><span class="count">05 VISUALS</span><div class="overlay"><div class="category">Commercial Elevation</div><h3>Commercial Architecture 02</h3><div class="meta">Exterior Visualization</div><div class="arrow">View project →</div></div></div></article>
+    <!-- Front Elevations -->
+    <article class="project front" data-title="Front Elevation 01" data-type="Front Elevation" data-description="Focused front-elevation presentation." data-gallery='[{"src":"NC_P.jpg","caption":"Perspective Elevation"},{"src":"NC_F.jpg","caption":"Front Elevation"},{"src":"NC_S.jpg","caption":"Side Elevation"},{"src":"NC_01.jpg","caption":"Perspective Elevation"},{"src":"NC_T.jpg","caption":"Top View"},{"src":"NC_N.jpg","caption":"Night Elevation"},{"src":"NC_cco.jpg","caption":"Option Elevation"}]'>
+      <div class="card">
+        <img src="NC_P.jpg" alt="Front Elevation 01">
+        <span class="count">07 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Front Elevation</div>
+          <h3>Front Elevation 01</h3>
+          <div class="meta">Architectural Visualization</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project interior" data-title="Luxury Interior 01" data-type="Interior Visualization" data-description="Luxury interior package covering living, dining and kitchen spaces." data-gallery='[{"src":"IDL_201.jpg","caption":"Living / Lounge Area"},{"src":"IDL_202.jpg","caption":"Dining Area"},{"src":"IDL_203.jpg","caption":"Kitchen View"},{"src":"IDL_204.jpg","caption":"Kitchen Detail"}]'><div class="card"><img src="IDL_201.jpg" alt="Luxury Interior 01"><span class="count">04 VISUALS</span><div class="overlay"><div class="category">Interior</div><h3>Luxury Interior 01</h3><div class="meta">Interior Visualization</div><div class="arrow">View project →</div></div></div></article>
+    <article class="project front" data-title="Front Elevation 02" data-type="Front Elevation" data-description="Front elevation visualization package." data-gallery='[{"src":"S_perspective.jpg","caption":"Front Perspective"},{"src":"S_front.jpg","caption":"Front Elevation"},{"src":"S_side.jpg","caption":"Side Elevation"},{"src":"S_back.jpg","caption":"Back Perspective"},{"src":"S_night.jpg","caption":"Night View"},{"src":"S_view.jpg","caption":"Optional Elevation"},{"src":"S_cc.jpg","caption":"Color Combinations"}]'>
+      <div class="card">
+        <img src="S_perspective.jpg" alt="Front Elevation 02">
+        <span class="count">07 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Front Elevation</div>
+          <h3>Front Elevation 02</h3>
+          <div class="meta">Exterior Visualization</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project interior" data-title="Luxury Interior 02" data-type="Interior Visualization" data-description="Luxury interior visualization package with multiple spatial views." data-gallery='[{"src":"IDL_101.jpg","caption":"Interior Overview"},{"src":"IDL_102.jpg","caption":"Living Room"},{"src":"IDL_103.jpg","caption":"Dining Area"},{"src":"IDL_104.png","caption":"Bar Area"},{"src":"IDL_105.jpg","caption":"Bar Area"},{"src":"IDL_106.png","caption":"Bar Area"}]'><div class="card"><img src="IDL_102.jpg" alt="Luxury Interior 02"><span class="count">06 VISUALS</span><div class="overlay"><div class="category">Interior</div><h3>Luxury Interior 02</h3><div class="meta">Interior Visualization</div><div class="arrow">View project →</div></div></div></article>
+    <!-- Commercial -->
+    <article class="project commercial" data-title="Commercial Architecture 01" data-type="Commercial Elevation" data-description="Commercial architectural visualization package." data-gallery='[{"src":"CR1.jpg","caption":"Perspective View"},{"src":"CR2.jpg","caption":"Eagle Eye View"},{"src":"CR3.jpg","caption":"Main Entrance"},{"src":"CR5.jpg","caption":"Entrance 2"},{"src":"CR2n.jpg","caption":"Night View"},{"src":"CR N.png","caption":"Night View 2"},{"src":"CR6.jpg","caption":"Exterior Detail"}]'>
+      <div class="card">
+        <img src="CR1.jpg" alt="Commercial Architecture 01">
+        <span class="count">07 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Commercial Elevation</div>
+          <h3>Commercial Architecture 01</h3>
+          <div class="meta">Exterior Visualization</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project interior" data-title="Luxury Interior 03" data-type="Interior Visualization" data-description="Bedroom and private interior visualization package." data-gallery='[{"src":"GLV.jpg","caption":"Bedroom / Lounge"},{"src":"bdr.jpg","caption":"Bedroom"},{"src":"BDM1.jpg","caption":"Bedroom Detail"},{"src":"BD3.jpg","caption":"Bedroom Perspective"}]'><div class="card"><img src="GLV.jpg" alt="Luxury Interior 03"><span class="count">04 VISUALS</span><div class="overlay"><div class="category">Interior</div><h3>Luxury Interior 03</h3><div class="meta">Interior Visualization</div><div class="arrow">View project →</div></div></div></article>
+    <article class="project commercial" data-title="Commercial Architecture 02" data-type="Commercial Elevation" data-description="Commercial architectural visualization package." data-gallery='[{"src":"CR_02_F.jpg","caption":"Front View"},{"src":"CR_02_P.jpg","caption":"Perspective View 01"},{"src":"CR_02_P2.jpg","caption":"Perspective View 02"},{"src":"CR_02_N.jpg","caption":"Night View"},{"src":"CR_02_OA.jpg","caption":"Optional View"}]'>
+      <div class="card">
+        <img src="CR_02_F.jpg" alt="Commercial Architecture 02">
+        <span class="count">05 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Commercial Elevation</div>
+          <h3>Commercial Architecture 02</h3>
+          <div class="meta">Exterior Visualization</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project exterior" data-title="Exterior Visualization 01" data-type="Exterior Visualization" data-description="Exterior architectural environment visualization." data-gallery='[{"src":"SS.jpg","caption":"Exterior Perspective"},{"src":"opt ss 2.jpg","caption":"Exterior View"}]'><div class="card"><img src="SS.jpg" alt="Exterior Visualization 01"><span class="count">02 VISUALS</span><div class="overlay"><div class="category">Exterior</div><h3>Exterior Visualization 01</h3><div class="meta">Architectural Environment</div><div class="arrow">View project →</div></div></div></article>
+    <!-- Interiors -->
+    <article class="project interior" data-title="Luxury Interior 01" data-type="Interior Visualization" data-description="Luxury interior package covering living, dining, and kitchen spaces." data-gallery='[{"src":"IDL_201.jpg","caption":"Living / Lounge Area"},{"src":"IDL_202.jpg","caption":"Dining Area"},{"src":"IDL_203.jpg","caption":"Kitchen View"},{"src":"IDL_204.jpg","caption":"Kitchen Detail"}]'>
+      <div class="card">
+        <img src="IDL_201.jpg" alt="Luxury Interior 01">
+        <span class="count">04 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Interior</div>
+          <h3>Luxury Interior 01</h3>
+          <div class="meta">Interior Visualization</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project plans" data-title="Sectional Presentation" data-type="2D / 3D" data-description="Architectural drawings and sectional visualization." data-gallery='[{"src":"FLOORP0.jpg","caption":"Floor Plan / Sectional 01"},{"src":"FLOORP1.jpg","caption":"Floor Plan / Sectional 02"},{"src":"FLOORP2.jpg","caption":"Floor Plan / Sectional 03"},{"src":"FLOORP3.jpg","caption":"Floor Plan / Sectional 04"}]'><div class="card"><img src="FLOORP0.jpg" alt="Sectional Presentation"><span class="count">04 VISUALS</span><div class="overlay"><div class="category">2D / 3D</div><h3>Sectional Presentation</h3><div class="meta">Architectural Drawings</div><div class="arrow">View project →</div></div></div></article>
+    <article class="project interior" data-title="Luxury Interior 02" data-type="Interior Visualization" data-description="Luxury interior visualization package with multiple spatial views." data-gallery='[{"src":"IDL_101.jpg","caption":"Interior Overview"},{"src":"IDL_102.jpg","caption":"Living Room"},{"src":"IDL_103.jpg","caption":"Dining Area"},{"src":"IDL_104.png","caption":"Bar Area"},{"src":"IDL_105.jpg","caption":"Bar Area"},{"src":"IDL_106.png","caption":"Bar Area"}]'>
+      <div class="card">
+        <img src="IDL_102.jpg" alt="Luxury Interior 02">
+        <span class="count">06 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Interior</div>
+          <h3>Luxury Interior 02</h3>
+          <div class="meta">Interior Visualization</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project walkthrough" data-title="Architectural Walkthrough 01" data-type="Walkthrough" data-description="Cinematic architectural walkthrough presentation." data-video="vi.mp4"><div class="card"><video src="vi.mp4" autoplay muted loop playsinline></video><div class="overlay"><div class="category">Walkthrough</div><h3>Architectural Walkthrough 01</h3><div class="meta">Cinematic Presentation</div><div class="arrow">Play walkthrough →</div></div></div></article>
+    <article class="project interior" data-title="Luxury Interior 03" data-type="Interior Visualization" data-description="Bedroom and private interior visualization package." data-gallery='[{"src":"GLV.jpg","caption":"Bedroom / Lounge"},{"src":"bdr.jpg","caption":"Bedroom"},{"src":"BDM1.jpg","caption":"Bedroom Detail"},{"src":"BD3.jpg","caption":"Bedroom Perspective"}]'>
+      <div class="card">
+        <img src="GLV.jpg" alt="Luxury Interior 03">
+        <span class="count">04 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Interior</div>
+          <h3>Luxury Interior 03</h3>
+          <div class="meta">Interior Visualization</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project walkthrough" data-title="Architectural Walkthrough 02" data-type="Walkthrough" data-description="Cinematic architectural walkthrough presentation." data-video="RS 2.mp4"><div class="card"><video src="RS 2.mp4" autoplay muted loop playsinline></video><div class="overlay"><div class="category">Walkthrough</div><h3>Architectural Walkthrough 02</h3><div class="meta">Cinematic Presentation</div><div class="arrow">Play walkthrough →</div></div></div></article>
+    <!-- Exteriors -->
+    <article class="project exterior" data-title="Exterior Visualization 01" data-type="Exterior Visualization" data-description="Exterior architectural environment visualization." data-gallery='[{"src":"SS.jpg","caption":"Exterior Perspective"},{"src":"opt ss 2.jpg","caption":"Exterior View"}]'>
+      <div class="card">
+        <img src="SS.jpg" alt="Exterior Visualization 01">
+        <span class="count">02 VISUALS</span>
+        <div class="overlay">
+          <div class="category">Exterior</div>
+          <h3>Exterior Visualization 01</h3>
+          <div class="meta">Architectural Environment</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<article class="project walkthrough" data-title="Interior Walkthrough" data-type="Interior Walkthrough" data-description="Cinematic interior walkthrough presentation." data-video="living wth 1.mp4"><div class="card"><video src="living wth 1.mp4" autoplay muted loop playsinline></video><div class="overlay"><div class="category">Walkthrough</div><h3>Interior Walkthrough</h3><div class="meta">Cinematic Interior Film</div><div class="arrow">Play walkthrough →</div></div></div></article>
-</div></section>
+    <!-- Plans -->
+    <article class="project plans" data-title="Sectional Presentation" data-type="2D / 3D" data-description="Architectural drawings and sectional visualization." data-gallery='[{"src":"FLOORP0.jpg","caption":"Floor Plan / Sectional 01"},{"src":"FLOORP1.jpg","caption":"Floor Plan / Sectional 02"},{"src":"FLOORP2.jpg","caption":"Floor Plan / Sectional 03"},{"src":"FLOORP3.jpg","caption":"Floor Plan / Sectional 04"}]'>
+      <div class="card">
+        <img src="FLOORP0.jpg" alt="Sectional Presentation">
+        <span class="count">04 VISUALS</span>
+        <div class="overlay">
+          <div class="category">2D / 3D</div>
+          <h3>Sectional Presentation</h3>
+          <div class="meta">Architectural Drawings</div>
+          <div class="arrow">View project →</div>
+        </div>
+      </div>
+    </article>
 
-<section class="section" id="services"><div class="head"><div><div class="section-no">03 / Capabilities</div><h2>What We Do</h2></div><div class="intro">From architectural elevations to interiors and cinematic films, INEXT creates visual assets designed to communicate design clearly.</div></div><div class="services"><div class="service"><div class="section-no">01</div><h3>Residential Visualization</h3><p>Exterior elevations, façades, perspectives, night views and architectural environments.</p></div><div class="service"><div class="section-no">02</div><h3>Commercial Visualization</h3><p>High-impact commercial architecture, façades, podiums and presentation visuals.</p></div><div class="service"><div class="section-no">03</div><h3>Interior Visualization</h3><p>Luxury interior renders with detailed materials, lighting, furniture and atmosphere.</p></div><div class="service"><div class="section-no">04</div><h3>Walkthroughs</h3><p>Cinematic architectural and interior walkthroughs for presentations and marketing.</p></div></div></section>
+    <!-- Walkthroughs -->
+    <article class="project walkthrough" data-title="Architectural Walkthrough 01" data-type="Walkthrough" data-description="Cinematic architectural walkthrough presentation." data-video="vi.mp4">
+      <div class="card video-card">
+        <video src="vi.mp4" autoplay muted loop playsinline></video>
+        <div class="overlay">
+          <div class="category">Walkthrough</div>
+          <h3>Architectural Walkthrough 01</h3>
+          <div class="meta">Cinematic Presentation</div>
+          <div class="arrow">Play walkthrough →</div>
+        </div>
+      </div>
+    </article>
 
-<section class="reel"><video src="vi.mp4" autoplay muted loop playsinline></video><div class="reel-overlay"><div class="eyebrow">Visualize Before You Build</div><h2>Architecture, experienced before reality.</h2><a class="btn primary" href="#contact">Create Your Project</a></div></section>
+    <article class="project walkthrough" data-title="Architectural Walkthrough 02" data-type="Walkthrough" data-description="Cinematic architectural walkthrough presentation." data-video="RS 2.mp4">
+      <div class="card video-card">
+        <video src="RS 2.mp4" autoplay muted loop playsinline></video>
+        <div class="overlay">
+          <div class="category">Walkthrough</div>
+          <h3>Architectural Walkthrough 02</h3>
+          <div class="meta">Cinematic Presentation</div>
+          <div class="arrow">Play walkthrough →</div>
+        </div>
+      </div>
+    </article>
 
-<section class="section dark"><div class="head"><div><div class="section-no">04 / Process</div><h2>How We Work</h2></div><div class="intro">A controlled workflow keeps architectural intent intact while developing a polished final visual.</div></div><div class="processes"><div class="process"><span class="section-no">01</span><h3>Discover</h3><p>Drawings, references, requirements and visual direction.</p></div><div class="process"><span class="section-no">02</span><h3>Model</h3><p>Develop the architectural form and spatial framework.</p></div><div class="process"><span class="section-no">03</span><h3>Visualize</h3><p>Materials, lighting, environment and camera composition.</p></div><div class="process"><span class="section-no">04</span><h3>Refine</h3><p>Review, feedback and controlled visual refinements.</p></div><div class="process"><span class="section-no">05</span><h3>Deliver</h3><p>High-resolution stills, animations and presentation assets.</p></div></div></section>
+    <article class="project walkthrough" data-title="Interior Walkthrough" data-type="Interior Walkthrough" data-description="Cinematic interior walkthrough presentation." data-video="living wth 1.mp4">
+      <div class="card video-card">
+        <video src="living wth 1.mp4" autoplay muted loop playsinline></video>
+        <div class="overlay">
+          <div class="category">Walkthrough</div>
+          <h3>Interior Walkthrough</h3>
+          <div class="meta">Cinematic Interior Film</div>
+          <div class="arrow">Play walkthrough →</div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
 
-<section class="section" id="about"><div class="section-no">05 / About INEXT</div><div class="about"><blockquote>Great design doesn't stop at the <span>threshold.</span></blockquote><div><p>INEXT creates high-fidelity architectural visualizations that connect interior experience with exterior identity.</p><p>From elevations and exterior environments to detailed interiors and cinematic walkthroughs, every visual is developed with attention to proportion, materials, lighting and atmosphere.</p><div class="tags"><span>Architects</span><span>Interior Designers</span><span>Developers</span><span>Builders</span><span>Private Clients</span></div></div></div></section>
+<!-- CAPABILITIES -->
+<section class="section" id="services">
+  <div class="head">
+    <div>
+      <div class="section-no">03 / Capabilities</div>
+      <h2>What We Do</h2>
+    </div>
+    <div class="intro">From elevations to luxury interiors and cinematic walkthrough films, every asset is designed to communicate design clearly.</div>
+  </div>
+  <div class="services">
+    <div class="service">
+      <div class="section-no">01</div>
+      <h3>Residential Visualization</h3>
+      <p>Exterior elevations, façades, perspectives, night views, and architectural environments.</p>
+    </div>
+    <div class="service">
+      <div class="section-no">02</div>
+      <h3>Commercial Visualization</h3>
+      <p>High-impact commercial architecture, façades, podiums, and marketing visuals.</p>
+    </div>
+    <div class="service">
+      <div class="section-no">03</div>
+      <h3>Interior Visualization</h3>
+      <p>Luxury interior renders with detailed materials, natural lighting, and curated styling.</p>
+    </div>
+    <div class="service">
+      <div class="section-no">04</div>
+      <h3>Walkthroughs</h3>
+      <p>Cinematic architectural and interior video walkthroughs for pitch and presentation.</p>
+    </div>
+  </div>
+</section>
 
-<section class="contact" id="contact"><div class="section-no">06 / Start a Project</div><h2>Have a project in mind?</h2><p>Let's turn your design into something people can see, feel and understand before it is built.</p><div class="actions" style="justify-content:center"><a class="btn primary" href="https://wa.me/918459441620">WhatsApp</a><a class="btn" href="https://instagram.com/inext_designs">Instagram</a><a class="btn" href="mailto:your@email.com">Email</a></div></section>
-<footer>© 2026 <strong>INEXT</strong> — Designing Inside. Defining Outside.</footer><a class="whatsapp" href="https://wa.me/918459441620" aria-label="WhatsApp">💬</a>
+<!-- REEL -->
+<section class="reel">
+  <video src="vi.mp4" autoplay muted loop playsinline></video>
+  <div class="reel-overlay">
+    <div class="eyebrow">Visualize Before You Build</div>
+    <h2>Architecture, experienced before reality.</h2>
+    <a class="btn primary" href="#contact">Create Your Project</a>
+  </div>
+</section>
 
-<!-- PROJECT DETAIL -->
-<div class="detail" id="detail" aria-hidden="true"><div class="detail-inner"><div class="detail-top"><div><div class="category" id="detail-type"></div><h2 id="detail-title"></h2><div class="detail-desc" id="detail-desc"></div></div><button class="close-detail" id="close-detail">×</button></div><div class="detail-grid" id="detail-grid"></div></div></div>
+<!-- PROCESS -->
+<section class="section dark">
+  <div class="head">
+    <div>
+      <div class="section-no">04 / Process</div>
+      <h2>How We Work</h2>
+    </div>
+    <div class="intro">A structured production workflow keeps architectural intent intact while developing photorealistic visuals.</div>
+  </div>
+  <div class="processes">
+    <div class="process">
+      <span class="section-no">01</span>
+      <h3>Discover</h3>
+      <p>Review drawings, reference photos, requirements, and visual direction.</p>
+    </div>
+    <div class="process">
+      <span class="section-no">02</span>
+      <h3>Model</h3>
+      <p>Develop accurate 3D geometry and spatial frameworks.</p>
+    </div>
+    <div class="process">
+      <span class="section-no">03</span>
+      <h3>Visualize</h3>
+      <p>Configure PBR materials, illumination, environment, and composition.</p>
+    </div>
+    <div class="process">
+      <span class="section-no">04</span>
+      <h3>Refine</h3>
+      <p>Incorporate feedback through controlled post-production passes.</p>
+    </div>
+    <div class="process">
+      <span class="section-no">05</span>
+      <h3>Deliver</h3>
+      <p>High-resolution stills, animations, and presentation-ready deliverables.</p>
+    </div>
+  </div>
+</section>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" aria-hidden="true"><div class="lb-content"><div class="lb-head"><div class="lb-title" id="lb-title"></div><div class="lb-counter" id="lb-counter"></div></div><div class="lb-main"><span class="lb-prev" id="lb-prev">❮</span><img id="lb-img" src="" alt=""><span class="lb-next" id="lb-next">❯</span></div><div class="lb-caption" id="lb-caption"></div><div class="thumbs" id="thumbs"></div></div><span class="lb-close" id="lb-close">×</span></div>
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-no" style="margin-bottom: 24px;">05 / About INEXT</div>
+  <div class="about">
+    <blockquote>Great design doesn't stop at the <span>threshold.</span></blockquote>
+    <div>
+      <p>INEXT creates high-fidelity architectural visualizations connecting internal spatial flow with exterior identity.</p>
+      <p>Every rendering is crafted with precision regarding proportion, surface textures, lighting accuracy, and visual presence.</p>
+      <div class="tags">
+        <span>Architects</span>
+        <span>Interior Designers</span>
+        <span>Developers</span>
+        <span>Builders</span>
+        <span>Private Clients</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-no">06 / Start a Project</div>
+  <h2>Have a project in mind?</h2>
+  <p>Let's turn your design into something people can see, feel, and understand before construction begins.</p>
+  <div class="actions" style="justify-content:center">
+    <a class="btn primary" href="https://wa.me/918459441620" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn" href="https://instagram.com/inext_designs" target="_blank" rel="noopener">Instagram</a>
+    <a class="btn" href="mailto:contact@inextdesigns.com">Email</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 <strong>INEXT DESIGNS</strong> — Designing Inside. Defining Outside.
+</footer>
+
+<a class="whatsapp" href="https://wa.me/918459441620" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+<!-- PROJECT DETAIL MODAL -->
+<div class="detail" id="detail" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="detail-inner">
+    <div class="detail-top">
+      <div>
+        <div class="category" id="detail-type"></div>
+        <h2 id="detail-title"></h2>
+        <div class="detail-desc" id="detail-desc"></div>
+      </div>
+      <button class="close-detail" id="close-detail" aria-label="Close project view">×</button>
+    </div>
+    <div class="detail-grid" id="detail-grid"></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX MODAL -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="lb-content">
+    <div class="lb-head">
+      <div class="lb-title" id="lb-title"></div>
+      <div class="lb-counter" id="lb-counter"></div>
+    </div>
+    <div class="lb-main">
+      <span class="lb-prev" id="lb-prev" aria-label="Previous image">❮</span>
+      <img id="lb-img" src="" alt="Enlarged view">
+      <span class="lb-next" id="lb-next" aria-label="Next image">❯</span>
+    </div>
+    <div class="lb-caption" id="lb-caption"></div>
+    <div class="thumbs" id="thumbs"></div>
+  </div>
+  <span class="lb-close" id="lb-close" aria-label="Close gallery">×</span>
+</div>
 
 <script>
-const header=document.getElementById('header');
-window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>30));
+// Header Scroll State
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 30);
+}, { passive: true });
 
-const filters=document.querySelectorAll('.filter');
-const projects=document.querySelectorAll('.project');
-filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;projects.forEach(p=>p.classList.toggle('hide',f!=='all'&&!p.classList.contains(f)))}));
+// Filter System
+const filters = document.querySelectorAll('.filter');
+const projects = document.querySelectorAll('.project');
 
-const detail=document.getElementById('detail'),detailTitle=document.getElementById('detail-title'),detailType=document.getElementById('detail-type'),detailDesc=document.getElementById('detail-desc'),detailGrid=document.getElementById('detail-grid');
-const lightbox=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),lbTitle=document.getElementById('lb-title'),lbCounter=document.getElementById('lb-counter'),lbCaption=document.getElementById('lb-caption'),thumbs=document.getElementById('thumbs');
-let gallery=[],idx=0;
-function readGallery(el){try{return JSON.parse(el.dataset.gallery||'[]')}catch(e){console.error('Invalid gallery:',el.dataset.title,e);return[]}}
-function openProject(el){
- if(el.dataset.video){detailTitle.textContent=el.dataset.title;detailType.textContent=el.dataset.type;detailDesc.textContent=el.dataset.description;detailGrid.innerHTML='';const box=document.createElement('div');box.className='detail-item';box.style.gridColumn='1/-1';const v=document.createElement('video');v.src=el.dataset.video;v.controls=true;v.autoplay=true;v.playsInline=true;v.style.width='100%';v.style.maxHeight='78vh';v.style.background='#000';box.appendChild(v);detailGrid.appendChild(box);detail.classList.add('open');document.body.classList.add('lock');return}
- gallery=readGallery(el);if(!gallery.length)return;detailTitle.textContent=el.dataset.title;detailType.textContent=el.dataset.type;detailDesc.textContent=el.dataset.description;detailGrid.innerHTML='';gallery.forEach((g,i)=>{const box=document.createElement('div');box.className='detail-item';const img=document.createElement('img');img.src=g.src;img.alt=g.caption||el.dataset.title;img.loading=i?'lazy':'eager';img.onerror=()=>box.remove();const cap=document.createElement('div');cap.className='caption';cap.textContent=g.caption||'';box.append(img,cap);box.onclick=()=>openLightbox(gallery,i,el.dataset.title);detailGrid.appendChild(box)});detail.classList.add('open');detail.setAttribute('aria-hidden','false');document.body.classList.add('lock')}
-function closeProject(){detail.classList.remove('open');detail.setAttribute('aria-hidden','true');detailGrid.innerHTML='';if(!lightbox.classList.contains('open'))document.body.classList.remove('lock')}
-document.querySelectorAll('.project').forEach(p=>p.addEventListener('click',()=>openProject(p)));document.querySelector('.featured').addEventListener('click',function(){openProject(this)});document.getElementById('close-detail').onclick=closeProject;
+filters.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filters.forEach(x => x.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    projects.forEach(p => {
+      p.classList.toggle('hide', f !== 'all' && !p.classList.contains(f));
+    });
+  });
+});
 
-function openLightbox(items,i,title){gallery=items;idx=i||0;lbTitle.textContent=title||'Project Gallery';thumbs.innerHTML='';gallery.forEach((g,n)=>{const t=document.createElement('img');t.className='thumb';t.src=g.src;t.alt=g.caption||'';t.onclick=e=>{e.stopPropagation();idx=n;updateLightbox()};thumbs.appendChild(t)});updateLightbox();lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false')}
-function updateLightbox(){if(!gallery.length)return;const g=gallery[idx];lbImg.style.opacity=0;const pre=new Image();pre.onload=()=>{lbImg.src=g.src;lbImg.alt=g.caption||'';lbImg.style.opacity=1};pre.onerror=()=>{lbImg.src=g.src;lbImg.style.opacity=1};pre.src=g.src;lbCaption.textContent=g.caption||'';lbCounter.textContent=String(idx+1).padStart(2,'0')+' / '+String(gallery.length).padStart(2,'0');document.querySelectorAll('.thumb').forEach((t,n)=>t.classList.toggle('active',n===idx))}
-function next(){if(gallery.length){idx=(idx+1)%gallery.length;updateLightbox()}}function prev(){if(gallery.length){idx=(idx-1+gallery.length)%gallery.length;updateLightbox()}}function closeLightbox(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');lbImg.src='';thumbs.innerHTML='';if(!detail.classList.contains('open'))document.body.classList.remove('lock')}
-document.getElementById('lb-close').onclick=closeLightbox;document.getElementById('lb-next').onclick=e=>{e.stopPropagation();next()};document.getElementById('lb-prev').onclick=e=>{e.stopPropagation();prev()};lightbox.onclick=e=>{if(e.target===lightbox)closeLightbox()};
-let touchX=0;lightbox.addEventListener('touchstart',e=>touchX=e.changedTouches[0].screenX,{passive:true});lightbox.addEventListener('touchend',e=>{const d=e.changedTouches[0].screenX-touchX;if(Math.abs(d)>50)d<0?next():prev()},{passive:true});
-document.addEventListener('keydown',e=>{if(lightbox.classList.contains('open')){if(e.key==='Escape')closeLightbox();if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()}else if(detail.classList.contains('open')&&e.key==='Escape')closeProject()});
+// Modal & Gallery Logic
+const detail = document.getElementById('detail');
+const detailTitle = document.getElementById('detail-title');
+const detailType = document.getElementById('detail-type');
+const detailDesc = document.getElementById('detail-desc');
+const detailGrid = document.getElementById('detail-grid');
+
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+const lbTitle = document.getElementById('lb-title');
+const lbCounter = document.getElementById('lb-counter');
+const lbCaption = document.getElementById('lb-caption');
+const thumbs = document.getElementById('thumbs');
+
+let gallery = [];
+let idx = 0;
+
+function readGallery(el) {
+  try {
+    return JSON.parse(el.dataset.gallery || '[]');
+  } catch(e) {
+    console.error('Invalid gallery JSON on element:', el.dataset.title, e);
+    return [];
+  }
+}
+
+function openProject(el) {
+  detailTitle.textContent = el.dataset.title || '';
+  detailType.textContent = el.dataset.type || '';
+  detailDesc.textContent = el.dataset.description || '';
+  detailGrid.innerHTML = '';
+
+  // Video Walkthrough Handler
+  if (el.dataset.video) {
+    const box = document.createElement('div');
+    box.className = 'detail-item';
+    box.style.gridColumn = '1/-1';
+    
+    const v = document.createElement('video');
+    v.src = el.dataset.video;
+    v.controls = true;
+    v.autoplay = true;
+    v.muted = true;
+    v.playsInline = true;
+    v.style.width = '100%';
+    v.style.maxHeight = '78vh';
+    v.style.background = '#000';
+    
+    box.appendChild(v);
+    detailGrid.appendChild(box);
+    detail.classList.add('open');
+    detail.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lock');
+    return;
+  }
+
+  // Image Gallery Handler
+  gallery = readGallery(el);
+  if (!gallery.length) return;
+
+  gallery.forEach((g, i) => {
+    const box = document.createElement('div');
+    box.className = 'detail-item';
+
+    const img = document.createElement('img');
+    img.src = g.src;
+    img.alt = g.caption || el.dataset.title;
+    img.loading = i === 0 ? 'eager' : 'lazy';
+    img.onerror = () => box.remove();
+
+    const cap = document.createElement('div');
+    cap.className = 'caption';
+    cap.textContent = g.caption || '';
+
+    box.append(img, cap);
+    box.onclick = () => openLightbox(gallery, i, el.dataset.title);
+    detailGrid.appendChild(box);
+  });
+
+  detail.classList.add('open');
+  detail.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('lock');
+}
+
+function closeProject() {
+  detail.classList.remove('open');
+  detail.setAttribute('aria-hidden', 'true');
+  detailGrid.innerHTML = '';
+  if (!lightbox.classList.contains('open')) {
+    document.body.classList.remove('lock');
+  }
+}
+
+document.querySelectorAll('.project').forEach(p => {
+  p.addEventListener('click', () => openProject(p));
+});
+
+const featuredCard = document.querySelector('.featured');
+if (featuredCard) {
+  featuredCard.addEventListener('click', function() { openProject(this); });
+}
+
+document.getElementById('close-detail').onclick = closeProject;
+
+// Lightbox Logic
+function openLightbox(items, i, title) {
+  gallery = items;
+  idx = i || 0;
+  lbTitle.textContent = title || 'Project Gallery';
+  thumbs.innerHTML = '';
+
+  gallery.forEach((g, n) => {
+    const t = document.createElement('img');
+    t.className = 'thumb';
+    t.src = g.src;
+    t.alt = g.caption || '';
+    t.onclick = (e) => {
+      e.stopPropagation();
+      idx = n;
+      updateLightbox();
+    };
+    thumbs.appendChild(t);
+  });
+
+  updateLightbox();
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+}
+
+function updateLightbox() {
+  if (!gallery.length) return;
+  const g = gallery[idx];
+  lbImg.style.opacity = '0';
+
+  const pre = new Image();
+  pre.onload = () => {
+    lbImg.src = g.src;
+    lbImg.alt = g.caption || '';
+    lbImg.style.opacity = '1';
+  };
+  pre.onerror = () => {
+    lbImg.src = g.src;
+    lbImg.alt = g.caption || '';
+    lbImg.style.opacity = '1';
+  };
+  pre.src = g.src;
+
+  lbCaption.textContent = g.caption || '';
+  lbCounter.textContent = `${String(idx + 1).padStart(2, '0')} / ${String(gallery.length).padStart(2, '0')}`;
+
+  document.querySelectorAll('.thumb').forEach((t, n) => {
+    t.classList.toggle('active', n === idx);
+  });
+}
+
+function next() {
+  if (gallery.length) {
+    idx = (idx + 1) % gallery.length;
+    updateLightbox();
+  }
+}
+
+function prev() {
+  if (gallery.length) {
+    idx = (idx - 1 + gallery.length) % gallery.length;
+    updateLightbox();
+  }
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  lbImg.src = '';
+  thumbs.innerHTML = '';
+  if (!detail.classList.contains('open')) {
+    document.body.classList.remove('lock');
+  }
+}
+
+document.getElementById('lb-close').onclick = closeLightbox;
+document.getElementById('lb-next').onclick = (e) => { e.stopPropagation(); next(); };
+document.getElementById('lb-prev').onclick = (e) => { e.stopPropagation(); prev(); };
+lightbox.onclick = (e) => { if (e.target === lightbox) closeLightbox(); };
+
+// Touch Swipe Navigation
+let touchX = 0;
+lightbox.addEventListener('touchstart', e => {
+  touchX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+lightbox.addEventListener('touchend', e => {
+  const d = e.changedTouches[0].screenX - touchX;
+  if (Math.abs(d) > 50) {
+    d < 0 ? next() : prev();
+  }
+}, { passive: true });
+
+// Keyboard Navigation
+document.addEventListener('keydown', e => {
+  if (lightbox.classList.contains('open')) {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  } else if (detail.classList.contains('open') && e.key === 'Escape') {
+    closeProject();
+  }
+});
 </script>
 </body>
 </html>
