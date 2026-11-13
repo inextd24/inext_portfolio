@@ -127,14 +127,17 @@ nav a:hover { color: var(--gold); }
   color: var(--gold);
 }
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(48px, 7.5vw, 108px);
+  font-family: 'BankGothic Md BT', 'Bank Gothic', 'Eurostile', sans-serif;
+  font-size: clamp(32px, 5.5vw, 82px); /* Scaled down slightly because BankGothic is wider */
   font-weight: 500;
-  line-height: 0.95;
-  letter-spacing: -2px;
+  line-height: 1.15;
+  letter-spacing: 2px; /* BankGothic requires positive letter-spacing */
+  text-transform: uppercase;
   margin: 18px 0;
 }
-.hero h1 span { color: var(--gold); }
+.hero h1 span { 
+  color: var(--gold); 
+}
 .hero p {
   max-width: 580px;
   color: #d0cdc6;
