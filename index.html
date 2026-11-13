@@ -128,15 +128,19 @@ nav a:hover { color: var(--gold); }
 }
 .hero h1 {
   font-family: 'BankGothic Md BT', 'Bank Gothic', 'Eurostile', sans-serif;
-  font-size: clamp(32px, 5.5vw, 82px); /* Scaled down slightly because BankGothic is wider */
+  font-size: clamp(32px, 5.5vw, 82px);
   font-weight: 500;
   line-height: 1.15;
-  letter-spacing: 2px; /* BankGothic requires positive letter-spacing */
+  letter-spacing: 2px;
   text-transform: uppercase;
   margin: 18px 0;
 }
-.hero h1 span { 
+.hero h1 .gold { 
   color: var(--gold); 
+}
+.hero h1 .cap {
+  font-size: 1.25em; /* Makes the first letter 25% larger than the rest of the word */
+} 
 }
 .hero p {
   max-width: 580px;
@@ -798,7 +802,10 @@ footer strong {
   </div>
   <div class="hero-content">
     <div class="eyebrow">Architectural Visualization Studio</div>
-    <h1>Designing <span>Inside.</span><br>Defining Outside.</h1>
+    <h1>
+  <span class="cap">D</span>ESIGNING <span class="gold"><span class="cap">I</span>NSIDE,</span><br>
+  <span class="cap">D</span>EFINING <span class="gold"><span class="cap">O</span>UTSIDE.</span>
+</h1>
     <p>High-fidelity 3D visualization for architecture, interiors, exteriors, elevations, and cinematic walkthroughs.</p>
     <div class="actions">
       <a class="btn primary" href="#work">Explore Work</a>
